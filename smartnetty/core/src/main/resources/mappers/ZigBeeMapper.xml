@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harmazing.mapper.ZigBeeMapper">
+	<insert id="batchInsertGwZigbee">
+		<foreach collection="list" item="item" index="index" open=""
+			close="" separator=";">
+			insert into spms_gateway_zigbee(gwid,channel,channelMask,txpower)
+			values(
+				#{item.gwid},#{item.channel},#{item.channelMask},#{item.txpower}
+			)	
+		</foreach>
+	</insert>
+	<insert id="batchInsertAcZigbee">
+		<foreach collection="list" item="item" index="index" open=""
+			close="" separator=";">
+			insert into spms_ac_zigbee
+			(deviceId,averageRxRssi,averageRxLQI,averageTxRssi,averageTxLQI)
+			values(
+				#{item.deviceId},#{item.rxsi},#{item.rxqi},#{item.txsi},#{item.txqi}
+			)
+		</foreach>
+	</insert>
+	<delete id="batchDelGwZigbee">
+		<foreach collection="list" item="item" index="index" open=""
+			close="" separator=";">
+			delete from spms_gateway_zigbee where gwid=#{item.gwid}
+		</foreach>
+	</delete>
+	<delete id="batchDelAcZigbee">
+		<foreach collection="list" item="item" index="index" open=""
+			close="" separator=";">
+			delete from spms_ac_zigbee where deviceId=#{item.deviceId}
+		</foreach>
+	</delete>
+	
+</mapper>

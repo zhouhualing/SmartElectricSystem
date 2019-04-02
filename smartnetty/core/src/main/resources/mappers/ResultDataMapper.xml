@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harmazing.mapper.ResultDataMapper">
+	<update id="updateResutData">
+		update spms_electro_result_data 
+		<set> 
+				power=power+#{power,jdbcType=NUMERIC},
+				reactive_power=reactive_power+#{reactive_power,jdbcType=NUMERIC},
+				power_factor=power_factor+#{power_factor,jdbcType=NUMERIC},
+				apparent_power=apparent_power+#{apparent_power,jdbcType=NUMERIC},
+				reactive_energy=reactive_energy+#{reactive_energy,jdbcType=NUMERIC},
+				reactive_demand=reactive_demand+#{reactive_demand,jdbcType=NUMERIC},
+				active_demand=active_demand+#{active_demand,jdbcType=NUMERIC},
+				device_num=device_num+#{device_num,jdbcType=NUMERIC}
+		</set>
+		where  id=#{id}
+	</update>
+	
+	<update id="batchUpdateResult" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open=""
+			close="" separator=";">
+			update spms_electro_result_data 
+				<set> 
+					power=power+#{item.power,jdbcType=NUMERIC},
+					reactive_power=reactive_power+#{item.reactive_power,jdbcType=NUMERIC},
+					power_factor=power_factor+#{item.power_factor,jdbcType=NUMERIC},
+					apparent_power=apparent_power+#{item.apparent_power,jdbcType=NUMERIC},
+					reactive_energy=reactive_energy+#{item.reactive_energy,jdbcType=NUMERIC},
+					reactive_demand=reactive_demand+#{item.reactive_demand,jdbcType=NUMERIC},
+					active_demand=active_demand+#{item.active_demand,jdbcType=NUMERIC},
+					device_num=device_num+#{item.deviceNum,jdbcType=NUMERIC},
+					accumulatePower=accumulatePower+#{item.accumulatePower}
+				</set>
+				where  id=#{item.id}
+			</foreach>
+	</update>
+	
+	<insert id="batchInsertResult" parameterType="java.util.List">	
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">	
+				INSERT INTO spms_electro_result_data
+				(id,area_id,start_time,power,reactive_power,power_factor,
+				apparent_power,reactive_energy,reactive_demand,active_demand,
+				demand_time,device_num,accumulatePower) VALUES 
+				(#{item.id} , #{item.areaId} , #{item.start_time} , #{item.power} , 
+				#{item.reactive_power} , #{item.power_factor}, #{item.apparent_power} , 
+				#{item.reactive_energy} ,  #{item.reactive_demand} ,
+				#{item.active_demand}, #{item.demandTime}, #{item.deviceNum},#{item.accumulatePower})
+		</foreach>
+	</insert>
+</mapper>

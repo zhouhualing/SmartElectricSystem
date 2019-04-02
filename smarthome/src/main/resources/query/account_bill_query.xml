@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="accountBillQuery" baseClass="com.harmazing.spms.desktop.entity.SpmsAccountBill">
+		<column key ="year" display="true" header="年" />
+		<column key ="month" display="true" header="月份" />
+		<column key ="countMonthRMB" display="true" header="金额" />
+		<column key ="sendMsgFlag" type="java.lang.Long" display="true" header="状态"  dict="account_sendFlag"/>
+		<column key ="accountMonthRest" display="true" header="账户余额"  />
+		<column key ="monthCredit" display="true" header="信誉额度"  />
+		<column key ="spmsUser.id" display="false"  allowSearch='true' />
+	</query>
+</querys>

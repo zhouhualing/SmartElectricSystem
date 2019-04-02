@@ -1,0 +1,32 @@
+
+package IDL;
+
+option java_package = "com.harmazing.protobuf";
+option java_outer_classname = "LogProtos";
+
+import "msgdef/sensor.proto";
+
+
+
+message AirConditionerRecord {
+    required int32  curTemperature          = 1;
+    required int32  curPower                = 2; // current KW FIXME
+    required uint64 accumulatePower         = 3;
+}
+
+message WinDoorRecord {
+    required bool on                = 1; // TODO -- not applicable now.
+}
+
+message Record {
+    required string sensorid                = 1; // sensor's EUID 
+    required Sensor.SensorType type         = 2;
+    required uint64 timestamp               = 3;
+    repeated AirConditionerRecord acRecord  = 4;
+    repeated WinDoorRecord windoorRecord    = 5;
+
+}
+
+message Log {
+    repeated Record records = 1;
+}

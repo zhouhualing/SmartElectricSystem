@@ -1,0 +1,316 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background:transparent;
+}
+.form-horizontal .control-group {
+	margin-bottom: 0;
+	width: 33.33%;
+	float: left;
+	margin-top: 2px;
+	overflow: hidden;
+	/*height: 22px;  */
+	height: 35px;
+	border-bottom: 0;
+}
+.form_two .control-group {
+	margin-bottom: 0;
+	width: 47.33%;
+	float: left;
+	margin-top: 2px;
+	overflow: hidden;
+	/*height: 22px;  */
+	height: 35px;
+	border-bottom: 0;
+}
+.wrap {
+	height: 100%;
+	/*	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;*/
+	overflow: auto;
+}
+/*.main {
+	width: 1200px;
+}*/
+.info {
+	margin-bottom: 20px;
+	font-size: 21px;
+	line-height: 40px;
+	color: #333;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+fieldset {
+	border: 0px solid #e5e5e5;
+	padding: 10px 0;
+}
+legend {
+	position: relative;
+	background: #5175b3;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: #fff;
+	font-size: 14px;
+	text-indent: 20px;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+legend span {
+	float: right;
+	margin-right: 40px;
+}
+legend span input[type=button] {
+	margin-left: 6px;
+}
+a.togglebtn {
+	position: absolute;
+	background: url(../../images/toggle.png) no-repeat 0px 0px;
+	height: 13px;
+	width: 24px;
+	cursor: pointer;
+	left: auto;
+	top: 15px;
+	right: 10px;
+}
+a.togglebtn-down {
+	background-position: 0px -13px;
+}
+input.edit_complete {
+	/*	background: url(../../images/edit-2add.png) no-repeat;*/
+	background: url(../../images/ico.png) 0 -96px no-repeat;
+	width: 24px;
+	height: 24px;
+	border: 0;
+}
+input.refresh_ico {
+	/* background: url(../../images/ico.png) 0 -144px no-repeat;
+	width: 22px;
+	height: 20px;
+	border: 0; */
+	background: url(../../images/ico.png) 0 -144px no-repeat;
+	width: 22px;
+	height: 20px;
+	border: 0;
+}
+input.send_ico {
+	background: url(../../images/ico.png) 0 -165px no-repeat;
+	width: 23px;
+	height: 18px;
+	border: 0;
+}
+input.edit_cancel {
+	/*background: url(../../images/edit-3delete.png) no-repeat;*/
+	background: url(../../images/ico.png) -24px -96px no-repeat;
+	width: 24px;
+	height: 24px;
+	border: 0;
+}
+input.edit_ico {
+	/*background: url(../../images/edit2.png) no-repeat;*/
+	background: url(../../images/ico.png) 0 -48px no-repeat;
+	width: 24px;
+	height: 24px;
+	border: 0;
+}
+input.delete_ico {
+	/*background: url(../../images/delete.png) no-repeat;*/
+	background: url(../../images/ico.png) 0 -24px no-repeat;
+	width: 24px;
+	height: 24px;
+	border: 0;
+}
+input.frozen_ico {
+	/*background: url(../../images/delete.png) no-repeat;*/
+	background: url(../../images/ico_frozen.png) no-repeat;
+	width: 24px;
+	height: 24px;
+	border: 0;
+}
+input.frozen_disable_ico {
+	/*background: url(../../images/delete.png) no-repeat;*/
+	background: url(../../images/ico_frozen_disable.png) no-repeat;
+	width: 24px;
+	height: 24px;
+	border: 0;
+}
+.input_view {
+	line-height: 27px;
+	font-size: 14px;
+	word-break: break-all;
+	color: #333;
+	font-family: Arial, "宋体";
+}
+a.input_view {
+	color: #4271c8;
+}
+.form_znydxq {
+	background: #f5f5f5;
+	border: 1px solid #c9c9c9;
+	margin: 0 0;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	height: auto;
+	overflow: hidden;
+}
+.form_znydxq .control-label {
+	padding-top: 3px;
+	background: transparent;
+}
+.form_znydxq .control-label {
+	padding-top: 0px;
+	background: transparent;
+	vertical-align: middle;
+	height: 30px;
+	line-height: 27px;
+	color: #999;
+	font-size: 14px;
+	width: 130px;
+}
+.form-two {
+	padding-top: 25px;
+	padding-bottom: 15px;
+	border-top-left-radius: 0!important;
+	border-top-right-radius: 0!important;
+	height: auto;
+	overflow: hidden;
+}
+.form-one {
+	padding-top: 0;
+	padding-bottom: 15px;
+	border-top-left-radius: 5px!important;
+	border-top-right-radius: 5px!important;
+}
+.add_service a {
+	border: 2px solid #bacce9;
+	height: 48px;
+	line-height: 48px;
+	background: #fff;
+	text-align: center;
+	color: #5175b3;
+	font-weight: bold;
+	border-radius: 4px;
+	font-size: 14px;
+	display: block;
+}
+.add_service i.add_ico {
+	background: url(../../images/ico.png) -24px 0 no-repeat;
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	position: relative;
+	top: 7px;
+	margin-right: 8px;
+}
+.add_service a:hover {
+	background: #e5e5e5;
+	display: block;
+	cursor: pointer;
+}
+/*订户管理style*/
+div.form_znydxq > fieldset {
+	padding: 0!important;
+}
+.service_list_title {
+	background: #5175b3;
+	height: 41px;
+	line-height: 41px;
+	color: #fff;
+	font-size: 14px;
+	padding: 0 0 0 20px;
+}
+.service_list_title h3 {
+	float: left;
+	font-size: 14px;
+}
+.service_list_title span input {
+	float: right;
+	margin-right: 10px;
+	margin-top: 9px;
+}
+.form_znyd {
+	margin: 0;
+}
+.form_znyd fieldset {
+	padding: 0;
+}
+.form_znyd fieldset form {
+	background: #f5f5f5;
+	border: 1px solid #c9c9c9;
+	margin: 0 0;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	height: auto;
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+.form-horizontal .control-label {
+	background: transparent;
+	color: #999;
+	font-size: 14px;
+	width: 130px;
+	cursor:default;
+}
+table.table_s {
+	width: 98%;
+	margin: 0 auto;
+	height: auto;
+	overflow: hidden;
+}
+table.table_s tbody>tr:nth-child(odd)>th {
+	background: transparent!important;
+	border-top: 0;
+	font-family: "黑体";
+	font-size: 15px;
+	padding-left: 60px;
+}
+table.table_s tbody>tr:nth-child(odd)>td {
+	background: #f5f5f5;
+	height: 33px;
+	line-height: 33px;
+	font-size: 14px;
+	padding:0;
+	padding-left: 60px;
+	overflow:hidden;
+}
+table.table_s tbody>tr:nth-child(even)>td {
+	background: #e8ecf3;
+	height: 33px;
+	line-height: 33px;
+	font-size: 14px;
+	padding:0;
+	padding-left: 60px;
+	overflow:hidden;
+}
+table.table_s tr td a i.delete_ico {
+	background: url(../../images/ico.png) -24px -24px no-repeat;
+	width: 24px;
+	height: 24px;
+	border: 0;
+	display: inline-block;
+	position: relative;
+	top: 6px;
+	margin-left: 10px;
+}
+table.table_s tr td a i.edit_ico {
+	background: url(../../images/ico.png) -24px -48px no-repeat;
+	width: 24px;
+	height: 24px;
+	border: 0;
+	display: inline-block;
+	position: relative;
+	top: 6px;
+	margin-right: 10px;
+}
+.qsordl{
+	display: none;
+	right: 24px;
+	z-index: 5;
+	position: absolute;
+}
+/*zhaomei 2014-11-10 add*/
+.breadcrumb_s{ background:#fafafa; border:1px solid #c9c9c9;}
+.row-fluid .span4{ line-height:30px; font-size:14px;}
+

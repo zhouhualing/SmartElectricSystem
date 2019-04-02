@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html style="overflow-x: hidden; overflow-y: auto;">
+<head>
+    <title>设备管理管理 - Powered By Clickmed</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="Cache-Control" content="no-store"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9,IE=10"/>
+    <link href="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/static/css/component/jqueryui/themes/base/jquery-ui.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/select2/select2.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/x-editable/css/bootstrap-editable.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/fancyBox/source/jquery.fancybox.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/common/platform.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/static/other/css/table.css" rel="stylesheet" type="text/css"/>
+    <link href="/spms/resources/common/platform.min.css" type="text/css" rel="stylesheet" />
+    <link href="/spms/static/other/css/table.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/spms/resources/favicon.ico">
+    <link href="/spms/resources/common/edit/edit_control.css" rel="stylesheet" type="text/css" />
+    <link href="/spms/resources/common/maskLayer/masklayer.css" type="text/css" rel="stylesheet" />
+    <meta name="decorator" content="default" />
+    <link href="/spms/resources/treeTable/themes/vsStyle/treeTable.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/spms/resources/favicon.ico">
+    <link href="/spms/resources/bootstrap/2.3.1/css_default/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/common/edit/edit_control.css" rel="stylesheet" type="text/css"/>
+    <link href="/spms/resources/common/maskLayer/masklayer.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/common/edit/edit_control.css" type="text/css" rel="stylesheet"/>
+    <style>
+        .controls {
+            line-height: 30px;
+            font-size: 16px;
+            word-break: break-all;
+        }
+        .cBtn{
+	    	font-size: 12px;
+	    	font-family: "微软雅黑"!important;
+	    	background-color: rgb(0, 51, 153);
+	    	color:white;
+	    	border-radius: 8px;
+	    	-webkit-transform-origin: 0px 0px 0px;
+	    	cursor: pointer;
+	    	text-align: center;
+	    	line-height: normal;
+	    	-webkit-user-select: none;
+	    	width: 62px;
+	    	height: 22px;
+	    }
+    </style>
+</head>
+<body>
+<ol class="breadcrumb">
+     您的当期位置：
+     <li ><a>设备管理</a></li>
+     >>
+     <li><a id="the_name">订户列表</a></li>
+     >>
+     <li><a >详细</a></li>
+</ol>
+<script type="text/javascript">
+    top.$.jBox.closeTip();
+</script>
+
+<fieldset id="fieldset1">
+    <form id="inputForm" class="main form-horizontal form_znydxq" method="post">
+        <legend>
+            设备基本信息 <span> <input class="edit_complete" name="test1"
+                                 style="display: none;" id="basicComplete" type="button"
+                                 onClick="doEditBaseInfo()"> <input class="edit_cancel" name=""
+                                                                    style="display: none" id="basicCancel" type="button"
+                                                                    onClick="cancelContol(this,'basic')"> <input
+                class="edit_ico" name="" type="button" id="basicEdit"
+                onClick="editContolText(this,'basic')"> <a
+                href="javascript:void(0)" onclick="deleteDevice()"><input
+                class="delete_ico" name="" id="basicDel" type="button"></a>
+				</span> <a class="togglebtn togglebtn-down" href="javascript:void(0)"
+                           onClick="togglebtnText(this)"></a>
+
+        </legend>
+        <input type="hidden" name="id" id="id"/>
+
+        <div class="control-group">
+            <label class="control-label">设备SN:</label>
+
+            <div class="controls">
+                <div class="input_view" id="snS"></div>
+                <input id="mySn" name="sn" style="display: none;"
+                       class="required hidden" type="text" maxlength="200"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">设备MAC:</label>
+
+            <div class="controls">
+                <div class="input_view" id="macS"></div>
+                <input id="myMac" name="mac" style="display: none;"
+                       class="required" type="text" maxlength="200"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">设备类型:</label>
+
+            <div class="controls">
+                <div id="type"
+                     style="line-height: 30px; font-size: 16px; word-break: break-all;"></div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">供应商:</label>
+
+            <div class="controls">
+                <div class="input_view" id="venderS"></div>
+                <input id="vender" name="vender" style="display: none;"
+                       class="required" type="text" maxlength="200"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">型号:</label>
+
+            <div class="controls">
+                <div class="input_view" id="modelS"></div>
+                <input id="model" name="model" style="display: none;"
+                       class="required" type="text" maxlength="200"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">硬件版本:</label>
+
+            <div class="controls">
+                <div class="input_view" id="hardwareS"></div>
+                <input id="hardware" name="hardware" style="display: none;"
+                       class="required" type="text" maxlength="200"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">出厂软件版本:</label>
+
+            <div class="controls">
+                <div class="input_view" id="softwareS"></div>
+                <input id="software" name="software" style="display: none;"
+                       class="required" type="text" maxlength="200"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">所在仓库:</label>
+
+            <div class="controls">
+                <div class="input_view" id="storageS"></div>
+                <select id="storage" name="storage" style="display: none" class="the_select2" dictSrc="device_storage">
+                </select>
+            </div>
+        </div>
+    </form>
+
+    <form id="inputForm2" style="margin: 0;" class="main form-horizontal form_znydxq">
+        <legend>
+            设备运营信息 <span> <input class="edit_complete" name="test2"
+                                 style="display: none;" id="motionComplete" type="button"
+                                 onClick="doEditOpreInfo()">
+					<input class="edit_cancel" name="" style="display: none"
+                           id="motionCancel" type="button"
+                           onClick="cancelContol(this,'motion'),cancelStroge()"> <input
+                    class="edit_ico" name="" type="button" id="motionEdit"
+                    onClick="editContolText(this,'motion')"> <!-- <input class="delete_ico" name="" id="motionDel" type="button"> -->
+				</span> <a class="togglebtn togglebtn-down" href="javascript:void(0)"
+                           onClick="togglebtnText(this)"></a>
+        </legend>
+        <input type="hidden" name="id" id="id"/>
+
+        <div class="control-group">
+            <label class="control-label">当前软件版本:</label>
+
+            <div class="controls">
+                <div class="input_view" id="cursoftS"></div>
+                <input id="cursoft" name="cursoft" style="display: none;"
+                       class="required" type="text" maxlength="200"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">运营状态:</label>
+
+            <div class="controls">
+                <div class="input_view" id="statusS"></div>
+                <select id="status" name="status" style="display: none" class="the_select2">
+                    <option value="1" selected="selected">库存</option>
+                    <option value="2">正常运营</option>
+                    <option value="3">维修</option>
+                    <option value="4">报废</option>
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">关联订户:</label>
+            <div class="controls" id="binduser">
+                
+            </div>
+        </div>
+    </form>
+    <fieldset>
+    <form id="inputForm3zigbee" style="margin: 0;" class="main form-horizontal form_znydxq">
+    
+    </form>
+    </fieldset>
+</fieldset>
+<fieldset class="main form-horizontal form_znydxq" id="sbyxxx">
+    <legend>
+        设备运行信息 <a class="togglebtn deviceHistory togglebtn-down" href="javascript:void(0)" id="ajaxInfo"></a>
+    </legend>
+    <div class="control-group">
+        <label class="control-label">运行状态:</label>
+
+        <div class="controls">
+            <div style="" id="operStatus"></div>
+        </div>
+
+    </div>
+
+
+    <table class="table table-striped  table-condensed" style="width: 70%; display: none;" id="devices">
+        <caption align="top">
+            <span style="font-family: 黑体;font-size: 18px;padding-left: 60px;font-weight: bold;">网关关联设备列表</span>
+        </caption>
+        <tbody>
+        <tr>
+            <th width="30.3%">设备类型</th>
+            <th width="30.3%">设备MAC</th>
+            <th width="30.3%">在线状态</th>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+</fieldset>
+<fieldset class="main form-horizontal form_znydxq" id="sbpzxx" style="display: none">
+    <legend>
+        设备配置信息 <a class="togglebtn togglebtn-down" href="javascript:void(0)" id="pzxx"></a>
+
+    </legend>
+</fieldset>
+<fieldset class="form_znydxq" id="sbydxx">
+    <legend>
+        <b class="b">设备历史状态信息</b>
+            <a class="togglebtn togglebtn-up" id="updown" href="javascript:void(0)"></a>
+    </legend>
+    <div id="gwstatus" style="width: 100%;display: none;min-height: 400px"></div>
+    <div id="onOff" style="width: 100%;display: none;min-height: 300px"></div>
+    <div id="powerSelect" style="width: 100%;display: none;min-height: 450px;position:relative">
+    	<div id="switchRangeDiv" style="display:none; position:absolute; left:160px; top:15px; z-index:99;">
+            	<input id="rBtn1" class="cBtn" type="button" onclick="rBtnClick(this.id);" value="当前"/>
+            	<input id="rBtn2" class="cBtn" type="button" onclick="rBtnClick(this.id);" value="当天"/>
+            	<input id="rBtn3" class="cBtn" type="button" onclick="rBtnClick(this.id);" value="当月"/>
+            	<input id="rBtn4" class="cBtn" type="button" onclick="rBtnClick(this.id);" value="当年"/>
+            </div>
+        <select style="position: absolute;right: 20px;width: 120px;">
+            <option value="1">功率曲线</option>
+            <option value="2">电能图表</option>
+            <option value="3">需求图表</option>
+            <option value="4">电流电压</option>
+        </select>
+        <div id="power" style="width: 1000px;height: 400px;">
+          </div>
+    </div>
+</fieldset>
+<div class="form-actions">
+    <input id="btnCancel" class="btn btn-primary" type="button"
+           value="返 回" onclick="history.go(-1)"/>
+</div>
+<script src="/spms/resources/jquery/jquery-1.9.1.min.js"
+        type="text/javascript"></script>
+<script src="/spms/resources/jquery/jquery-migrate-1.1.1.min.js"
+        type="text/javascript"></script>
+<script
+        src="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.js"
+        type="text/javascript"></script>
+<script
+        src="/spms/resources/jquery-validation/1.11.1/jquery.validate.method.min.js"
+        type="text/javascript"></script>
+<script src="/spms/resources/bootstrap/2.3.1/js/bootstrap.min.js"
+        type="text/javascript"></script>
+<!--[if lte IE 6]>
+<link href="/spms/resources/bootstrap/bsie/css/bootstrap-ie6.min.css" type="text/css" rel="stylesheet"/>
+<script src="/spms/resources/bootstrap/bsie/js/bootstrap-ie.min.js" type="text/javascript"></script><![endif]-->
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="/spms/resources/common/html5.js"></script><![endif]-->
+<script src="/spms/resources/My97DatePicker/WdatePicker.js"
+        type="text/javascript"></script>
+<script src="/spms/resources/common/mustache.min.js"
+        type="text/javascript"></script>
+<script src="/spms/resources/list/list.min.js" type="text/javascript"></script>
+<script src="/spms/resources/select2/select2.js" type="text/javascript"></script>
+<script src="/spms/resources/select2/select2_locale_zh-CN.js"
+        type="text/javascript"></script>
+<script src="/spms/resources/x-editable/js/bootstrap-editable.js"
+        type="text/javascript"></script>
+<script src="/spms/resources/fancyBox/source/jquery.fancybox.js"
+        type="text/javascript"></script>
+<script src="/spms/resources/common/platform.min.js"
+        type="text/javascript"></script>
+<script type="text/javascript"
+        src="/spms/resources/common/maskLayer/maskLayer.js">
+
+</script>
+
+<script src="../../static/other/scripts/js/highstock.js"></script>
+<script type="application/javascript" src="../../static/other/scripts/js/chartstyle.js"></script>
+<script type="text/javascript"
+        src="/spms/resources/common/edit/edit_control.js">
+
+</script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.core.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.datepicker.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect-blind.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.progressbar.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.mouse.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.button.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.draggable.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.position.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.resizable.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.dialog.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/common/common.js"></script>
+<script type="text/javascript"
+        src="/spms/static/css/component/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/common/common-dialog.js"></script>
+<script type="text/javascript"
+        src="/spms/resources/common/maskLayer/maskLayer.js">
+
+</script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/common/common-table.js">
+
+</script>
+<script src="../../resources/spms/d3-3.4.1.min.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/device/spmsDeviceUpdate.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/device/spmsDeviceDetail.js"></script>
+</body>
+</html>

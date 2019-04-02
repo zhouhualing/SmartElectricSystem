@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="areaQuery" baseClass="com.harmazing.spms.area.entity.Area"  customerDecoration="areaManager.getAreaTree" orderBy="sort#asc">
+		<column key ="code" display="true" header="区域编码" allowSearch='true' operator='LIKE' rowClick="false" width="16%" />
+		<column key ="name" display="true" header="区域名称" allowSearch='true' operator='LIKE' width="16%" />
+		<column key ="type" display="true" header="区域类型" type="java.lang.Long" dict="area_type" allowSearch='true'  width="16%" />
+		<column key ="remarks" display="true" header="备注" allowSearch='true' operator='LIKE' width="16%" />
+		<column key ="classification" display="false" type="java.lang.Long"  allowSearch='true' />
+	</query>
+	
+</querys>

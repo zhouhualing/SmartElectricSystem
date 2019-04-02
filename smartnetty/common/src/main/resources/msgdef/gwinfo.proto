@@ -1,0 +1,22 @@
+package protobuf;
+
+option java_package="com.harmazing.protobuf";
+option java_outer_classname="GatewayInfoProtos";
+
+import "msgdef/sensor.proto";
+
+message GatewayInfoResponse {
+
+	required string EUI					= 1;
+    required uint32 softwareVersion     = 2;
+    required uint32 hardwareVersion     = 3;
+    required int32  zigbeeChannel       = 4;
+    required int32  zigbeeChannelMask   = 5;
+	required int32  zigbeeTxPower		= 6;
+
+    repeated Sensor     sensors         = 7;
+}
+
+message HeartbeatResponse{
+
+}

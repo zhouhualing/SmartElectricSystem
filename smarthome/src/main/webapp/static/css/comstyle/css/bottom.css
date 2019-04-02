@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+
+.bottom{
+	height:10px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius:6px;
+	background:url(../images/bottombg.png) no-repeat;
+	background-size:cover;
+	}

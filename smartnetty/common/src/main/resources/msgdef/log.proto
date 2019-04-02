@@ -1,0 +1,50 @@
+package protobuf;
+
+option java_package="com.harmazing.protobuf";
+option java_outer_classname="LogProtos";
+
+import "msgdef/sensor.proto";
+message AirConditionerRecord {
+
+	message ExtendedParameters {
+
+		message DemandType {
+			required uint64 StartTime		= 1;	// start time of the demand period
+			required int32 Period		    = 2;	// duration of demand period
+    		required int32 ActiveDemand 	= 3;
+    		required int32 ReactiveDemand 	= 4;
+		}
+
+    	required sint32 ReactivePower    = 1;	// reactive power is likely to have negative value
+    	required int32 ReactiveEnergy    = 2;
+    	required int32 ApparentPower     = 3;
+    	required int32 Voltage           = 4;
+    	required int32 Current           = 5;
+    	required int32 Frequency         = 6;
+    	required int32 PowerFactor       = 7;	// range from 0 to 100
+		optional DemandType Demand		 = 8;
+	}
+
+    required int32  curTemperature          = 1;
+    required int32  curPower                = 2; // current KW FIXME
+    required uint64 accumulatePower         = 3;
+
+	optional ExtendedParameters extParameters = 4;
+	optional int32  curHumidity               = 5;
+}
+
+message WinDoorRecord {
+    required bool on                = 1; // TODO -- not applicable now.
+}
+
+message Record {
+    required string sensorid                 = 1; // sensor's EUID
+    required Sensor.SensorType type          = 2;
+    required uint64 timestamp                = 3;
+    optional  AirConditionerRecord acRecord  = 4;
+    optional  WinDoorRecord windoorRecord    = 5;
+}
+
+message Log {
+    repeated Record records = 1;
+}

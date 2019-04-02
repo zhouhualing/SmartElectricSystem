@@ -1,0 +1,116 @@
+package protobuf;
+
+option java_package="com.harmazing.protobuf";
+option java_outer_classname="DeviceProtos";
+
+message DeviceAnnouncement {
+	optional string software_version 	= 1;
+	optional string hardware_version 	= 2;
+	optional string manufacturer_name 	= 3;
+	optional string model_name			= 4;
+}
+
+message DeviceOnline {
+	 message DeviceVersion {
+	    required string software_version 	= 1;
+        required string hardware_version 	= 2;
+    }
+
+	message InnolinksAcOnline {
+		required bool on_off			= 1;
+		required int32 operation_mode 	= 2;
+		required int32 temperature 		= 3;
+		required int32 fan_speed 		= 4;
+		required int32 current_energy 	= 5;
+	}
+
+	message InnolinksAcPowerSocketOnline {
+		required bool pairing_state 	= 1;
+		required int32 rcu_id 		    = 2;
+	}
+
+	message InnolinksThermostatOnline {
+		required bool on_off			= 1;
+		required int32 operation_mode 	= 2;
+		required int32 temperature 		= 3;
+		required int32 fan_speed 		= 4;
+	}
+
+    message ZigbeeOoOnline {
+		required bool on_off			= 1;
+    }
+
+    message ZigbeeOoElectricityMeterOnline {
+        required bool on_off            = 1;
+    }
+
+    message DoorWindowSensorOnline {
+        required bool open              = 1;
+    }
+
+    message PirSensorOnline {
+        required bool alarmed           = 1;
+    }
+
+    message TemperatureHumiditySensorOnline {
+        required int32 temperature      = 1;
+        required int32 humidity         = 2;
+    }
+
+    message LightSwitchOnline {
+        required bool on_off            = 1;
+    }
+
+    message ZigbeeHALampOnline {
+        required bool on_off            = 1;
+        required int32 illuminance      = 2;
+        required int32 red              = 3;
+        required int32 green            = 4;
+        required int32 blue             = 5;
+    }
+
+
+	optional InnolinksAcOnline innolinks_ac_online = 1;
+	optional InnolinksAcPowerSocketOnline innolinks_ac_power_socket_online = 2;
+	optional InnolinksThermostatOnline innolinks_thermostat_online = 3;
+	optional ZigbeeOoOnline zigbee_oo_online = 4;
+    optional ZigbeeOoElectricityMeterOnline zigbee_oo_electrocity_meter_online = 5;
+    optional DoorWindowSensorOnline door_window_sensor_online = 6;
+    optional PirSensorOnline pir_sensor_online = 7;
+    optional TemperatureHumiditySensorOnline temperature_humidity_sensor_online = 8;
+    optional LightSwitchOnline light_switch_online = 9;
+    optional ZigbeeHALampOnline zigbee_ha_lamp_online = 10;
+
+    optional DeviceVersion device_version = 100;
+}
+
+message DeviceSpecific {
+    enum DeviceType {
+        RESERVED                    = 0;
+        INNOLINKS_GATEWAY           = 1;
+        INNOLINKS_AC                = 2;
+        INNOLINKS_AC_POWER_SOCKET   = 3;
+        INNOLINKS_THERMOSTAT        = 4;
+        ZIGBEE_OO                   = 5;
+        ZIGBEE_OO_ELECTRICITY_METER = 6;
+        DOOR_WINDDOW_SENSOR         = 7;
+        PIR_SENSOR                  = 8;
+        TEMPERATURE_HUMIDITY_SENSOR = 9;
+        LIGHT_SWITCH                = 10;
+        ZIGBEE_HA_LAMP              = 11;
+    }
+
+	enum MessageType {
+		DEVICE_ANNOUNCEMENT			= 0;
+		DEVICE_ONLINE				= 1;
+		DEVICE_OFFLINE				= 2;
+	}
+
+    required string eui64				= 1;
+    required DeviceType device_type		= 2;
+	required MessageType message_type	= 3;
+
+	// Specific messages
+	optional DeviceAnnouncement device_announcement = 4;
+	optional DeviceOnline device_online	= 5;
+}

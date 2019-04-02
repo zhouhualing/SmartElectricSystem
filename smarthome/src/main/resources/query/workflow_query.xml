@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+
+	<query queryId="workFlowQuery" queryManager="workFlowManager" queryMethod="doGetProcessInfo">
+		<column key ="NAME_" header="工单类型"  allowSearch="true" operator="LIKE"/>
+		<column key ="KEY_" header="工单流程编码"  allowSearch="true" operator="LIKE"/>
+	</query>
+	
+	<query queryId="workFlowMeAppQuery" queryManager="workFlowManager" queryMethod="getMeApprovaling">
+		<column key ="taskId" header="任务id" display="false"/>
+		<column key ="taskKey" header="任务key" display="false"/>
+		<column key ="workOrderCode" header="工单编号"  />
+		<column key ="taskName" header="当前环节"  />
+		<column key ="workflowType" header="工单类型" dict="workorder_wtype"/>
+		<column key ="createUser" header="创建人" />
+		<column key ="createDate" header="创建日期" type="java.util.Date" dateFormat="yyyy-MM-dd"/>
+		<column key ="userCode" display="false" />
+	</query>
+	
+	<query queryId="workFlowMeClaimQuery" queryManager="workFlowManager" queryMethod="getNeedClaimList" orderBy="createDate#desc">
+		<column key ="taskId" header="任务id" display="false"/>
+		<column key ="taskKey" header="任务key" display="false"/>
+		<column key ="workOrderCode" header="工单编号"  />
+		<column key ="taskName" header="当前环节"  />
+		<column key ="workflowType" header="工单类型" dict="workorder_wtype"/>
+		<column key ="createUser" header="创建人" />
+		<column key ="createDate" header="创建日期" type="java.util.Date" dateFormat="yyyy-MM-dd"/>
+		<column key ="userCode" display="false" />
+	</query>
+	
+	<query queryId="workFlowAssigneeQuery" queryManager="workFlowManager" queryMethod="getNeedAssingList">
+		<column key ="taskId" header="任务id" display="false"/>
+		<column key ="taskKey" header="任务key" display="false"/>
+		<column key ="workOrderCode" header="工单编号"  />
+		<column key ="taskName" header="当前环节"  />
+		<column key ="userName" header="被分配人" />
+		<column key ="workflowType" header="工单类型" dict="workorder_wtype"/>
+		<column key ="createUser" header="创建人" />
+		<column key ="createDate" header="创建日期" type="java.util.Date" dateFormat="yyyy-MM-dd"/>
+		<column key ="userCode" display="false" />
+	</query>
+	
+	<query queryId="workflowConfigQuery" queryManager="workFlowManager" queryMethod="doGetProcessNodeInfo" orderBy="createDate#desc">
+		<column key ="operaterId" header="操作id"   />
+		<column key ="text" header="操作名称"   />
+		<column key ="requestUrl" header="Controller"   />
+		<column key ="createDataFun" header="createDatafun"   />
+		<column key ="callBackDataFun" header="jsCallBack"   />
+		<column key ="selectType" header="选人类型"  />
+		<column key ="isShowDate" header="日期类型"   />
+		<column key ="roleCodes" header="可选角色"   />
+		<column key ="haveOperaterStr" header="可操作流"/>
+		<column key ="phoneMarkType" header="备注类型"/>
+		<column key ="isGiveUser" header="回复规则"   />
+		<column key ="isShowDialog" header="弹出框"  />
+		<column key ="defaultAdvice" header="默认意见"  />
+		<column key ="handleTime" header="处理时长"  />
+		<column key ="countersign" header="是否会签"  />
+		<column key ="createDate" header="创建日期" display="false" type="java.util.Date" dateFormat="yyyy-MM-dd"/>
+	</query>
+	
+	<query queryId="taskListQuery"  queryManager="workFlowManager" queryMethod="getTaskListQuery" >
+		<column key ="taskName" header="任务名称" />
+		<column key ="startTime" header="任务开始时间" type="java.util.Date" dateFormat="yyyy-MM-dd hh:mm:ss"/>
+		<column key ="assignee" header="处理人"  />
+		<column key ="claimTime" header="任务认领时间"  type="java.util.Date" dateFormat="yyyy-MM-dd hh:mm:ss"/>
+		<column key ="endTime" header="任务完成时间" type="java.util.Date" dateFormat="yyyy-MM-dd hh:mm:ss"/>
+	</query>
+</querys>

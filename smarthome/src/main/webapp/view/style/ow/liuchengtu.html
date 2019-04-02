@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>用电管理</title>
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/layout_zd.css" rel="stylesheet" type="text/css" />
+        <link href="../css/znyd.css" rel="stylesheet" type="text/css" />
+        <link href="../css/table.css" rel="stylesheet" type="text/css" />
+        <script type='text/javascript' src="../scripts/js//jquery.min.js"></script>
+        <script type='text/javascript' src="../scripts/js//me.js"></script>
+        <script type='text/javascript' src='../scripts/js/example.js'></script>
+        <script type="text/javascript" src="../scripts/js/003.js"></script>
+        <style>
+/* alipay iconfont */
+
+@font-face {
+	font-family: "rei";
+	src: url("https://i.alipayobjects.com/common/fonts/rei.eot?20130423"); /* IE9 */
+	src: url("https://i.alipayobjects.com/common/fonts/rei.eot?20130423#iefix") format("embedded-opentype"), /* IE6-IE8 */  url("https://i.alipayobjects.com/common/fonts/rei.woff?20130423") format("woff"), /* chrome 6+、firefox 3.6+、Safari5.1+、Opera 11+ */  url("https://i.alipayobjects.com/common/fonts/rei.ttf?20130423") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */  url("https://i.alipayobjects.com/common/fonts/rei.svg?20130423#rei") format("svg"); /* iOS 4.1- */
+}
+.iconfont {
+	font-family: "rei"!important;
+	font-style: normal;
+	font-weight: normal;
+	cursor: default;
+	-webkit-font-smoothing: antialiased;
+}
+</style>
+        </head>
+
+        <body>
+<!--------------------//header//-------------------->
+
+<div class="header">
+          <iframe src="header.html" width="100%" height="74" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+        </div>
+<!--------------------//main//-------------------->
+<div class="main_box">
+          <div class="box_left">
+    <div class="search_bar">
+              <input class="text_input" type="text"/>
+              <input type="button" class="ser_ico" />
+            </div>
+    <div class="ser_con">
+              <div class="menu">设备类型</div>
+              <div class="sub_menu">
+        <ul>
+                  <li><a href="#">网关</a></li>
+                  <li><a href="#">传感器</a></li>
+                  <li><a href="#">空调</a></li>
+                </ul>
+      </div>
+            </div>
+  </div>
+          <div class="box_right"> 
+    <!--面包屑导航开始-->
+    <div class="bread_nav f12"><a href="index.html">首页</a> > <a href="sbgl.html">设备管理</a> > <a href="online_user">在线用户</a> > 李楠</div>
+    <div class="first_tips border_01 bgcolor_01"><span class="area">北京市宣武区</span>当前的用电策略<span class="level">为节能级别一</span><a class="link_one text_uline fr" href="#">修改策略</a></div>
+    <div class="block_charts2 one_charts border_02 bgcolor_02 mt10">
+              <div class="charts_tit">
+        <h4>设备信息</h4>
+        <div class="edit_ico"><img src="../images/edit_ico.png" width="45" height="40" /></div>
+      </div>
+
+              <!--进度条开始--><ol class="ui-step ui-step-5">
+        <li class="ui-step-start ui-step-done">
+                  <div class="ui-step-line">-</div><div class="arrow-right"></div>
+                  <div class="ui-step-icon"> <i class="iconfont">&#xf02f;</i> <i class="ui-step-number">1</i> <span class="ui-step-text">工单生成</span> </div>
+                </li>
+        <li class="ui-step-done">
+                  <div class="ui-step-line">-</div><div class="arrow-right"></div>
+                  <div class="ui-step-icon"> <i class="iconfont">&#xf02f;</i> <i class="ui-step-number">2</i> <span class="ui-step-text">创建订户</span> </div>
+                </li>
+        <li class="ui-step-done">
+                  <div class="ui-step-line">-</div><div class="arrow-right"></div>
+                  <div class="ui-step-icon"> <i class="iconfont">&#xf02f;</i> <i class="ui-step-number">3</i> <span class="ui-step-text">订购商品</span> </div>
+                </li>
+        <li class="ui-step-active">
+                  <div class="ui-step-line">-</div><div class="arrow-right"></div>
+                  <div class="ui-step-icon"> <i class="iconfont">&#xf02f;</i> <i class="ui-step-number">4</i> <span class="ui-step-text">安装激活</span> </div>
+                </li>
+        <li class="ui-step-end ui-step-nodone">
+                  <div class="ui-step-line">-</div><div class="arrow-right"></div>
+                  <div class="ui-step-icon"> <i class="iconfont">&#xf02f;</i> <i class="ui-step-number"><!--&#xF029;-->5</i> <span class="ui-step-text">电话回访</span> </div>
+                </li>
+      </ol>
+              <div class="chart_data tc" style="background:#f8f8f8; margin:10px; border-radius:5px;">
+        <table class="table_view" width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+            <td class="td_name">任务办理时间：</td>
+            <td>2015-1-29    09:33:29</td>
+            <td class="td_name">任务确认时间：</td>
+            <td>2015-1-29    14:12:21</td>
+          </tr>
+                  <tr>
+            <td class="td_name">任务办理信息：</td>
+            <td>用户在2015-1-29 09:33:29 完成工单发送</td>
+            <td class="td_name">任务办理人：</td>
+            <td>TEST</td>
+          </tr>
+                </table>
+      </div>
+              
+              <!--进度条结束--> 
+              
+            </div>
+    <div class="block_charts2 one_charts border_02 bgcolor_02 mt10">
+              <div class="charts_tit">运行状态：开启</div>
+              <div class="chart_data tc">
+        <table class="table_view" width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+            <td class="td_name">设备状态：</td>
+            <td><select name="">
+                <option>开启</option>
+                <option>关闭</option>
+              </select></td>
+            <td class="td_name">模式：</td>
+            <td><select name="">
+                <option>制冷</option>
+                <option>制热</option>
+              </select></td>
+          </tr>
+                  <tr>
+            <td class="td_name">设定温度：</td>
+            <td><select name="">
+                <option>25℃</option>
+                <option>26℃</option>
+              </select></td>
+            <td class="td_name">风俗：</td>
+            <td><select name="">
+                <option>中速</option>
+                <option>上下摇摆</option>
+              </select></td>
+          </tr>
+                </table>
+      </div>
+            </div>
+    <div class="record">
+              <div class="tit02 fht">
+        <h5>历史记录</h5>
+      </div>
+              <table class="table_list" width="100%" border="0">
+        <thead>
+                  <tr>
+            <th style="width:60px;">序号</th>
+            <th>设备SN</th>
+            <th>操作</th>
+            <th>时间</th>
+            <th>日期</th>
+          </tr>
+                </thead>
+        <tbody>
+                  <tr>
+            <td>1</td>
+            <td>as0199011</td>
+            <td>开启空调</td>
+            <td>21:45</td>
+            <td>2014-09-23</td>
+          </tr>
+                  <tr class="td_bg">
+            <td>2</td>
+            <td>as0199011</td>
+            <td>开启空调</td>
+            <td>21:45</td>
+            <td>2014-09-23</td>
+          </tr>
+                  <tr>
+            <td>3</td>
+            <td>as0199011</td>
+            <td>开启空调</td>
+            <td>21:45</td>
+            <td>2014-09-23</td>
+          </tr>
+                  <tr class="td_bg">
+            <td>4</td>
+            <td>as0199011</td>
+            <td>开启空调</td>
+            <td>21:45</td>
+            <td>2014-09-23</td>
+          </tr>
+                </tbody>
+      </table>
+            </div>
+  </div>
+        </div>
+<!--------------------//footer//-------------------->
+<div class="footer"> <span>Copyright © 2012  Design  by  Petrochina</span> </div>
+</body>
+</html>

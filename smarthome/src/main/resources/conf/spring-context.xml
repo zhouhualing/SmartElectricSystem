@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" 
+	xmlns:task="http://www.springframework.org/schema/task" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.2.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
+		 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+		http://cxf.apache.org/jaxws 
+    	http://cxf.apache.org/schemas/jaxws.xsd"
+	default-lazy-init="true">
+
+	<description>Spring Configuration</description>
+    <!-- 加载配置文件 -->
+	<context:property-placeholder ignore-unresolvable="true" location="classpath*:prop/*.properties" />
+	
+	<!-- inject the springContextHolder-->
+	<bean id="springContextHolder" class="com.harmazing.spms.base.util.SpringUtil" lazy-init="false"/>
+	
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+	<!-- 使用Annotation自动注册Bean，防止多次扫描导致事务失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller和ControllerAdvice注解。  -->
+	<context:component-scan base-package="com.harmazing.spms"><!-- base-package 如果多个，用“,”分隔 -->
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	
+	<context:property-placeholder ignore-unresolvable="true" location="classpath*:prop/*.properties" />
+	
+	
+	<!-- 加载AOP相关 -->
+	 <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+<!-- 	<bean id="aspectBean" class="com.harmazing.spms.spmslog.toolsClass.LogAspect" />
+ -->	<!-- <aop:config>  
+        <aop:aspect id="TestAspect" ref="aspectBean" order="10" >  
+            配置com.spring.service包下所有类或接口的所有方法  
+            <aop:pointcut id="businessService" expression="execution(* com.harmazing.spms.*.manager.*.*(..))" />  
+            <aop:before pointcut-ref="businessService" method="doBeforeInServiceLayer"/>  
+            <aop:after pointcut-ref="businessService" method="doAfterInServiceLayer"/>  
+            <aop:around pointcut-ref="businessService" method="doAround"/>
+            
+            <aop:after-throwing pointcut-ref="businessService" method="doThrowing" throwing="ex"/>    
+        </aop:aspect>  
+    </aop:config> -->
+	
+	
+	
+ 	<!-- 定义Hibernate Session工厂 -->
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
+		<property name="dataSource" ref="dynamicDataSource"/>
+		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/> 
+		<property name="packagesToScan" value="com.harmazing.spms"/>
+		<property name="jpaProperties">
+			<props>
+				<prop key= "hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="use_query_cache">true</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+				<prop key="net.sf.ehcache.configurationResourceName">cache/ehcache-hibernate-local.xml</prop>
+				<!--<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>-->
+				<prop key="hibernate.cache.use_structured_entries">true</prop> 
+				<prop key="hibernate.generate_statistics">false</prop>
+				
+				<prop key="hibernate.search.default.directory_provider">filesystem</prop>
+				<prop key="hibernate.search.default.indexBase">${hibernate.search.default.indexBase}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				 
+			</props>
+		</property>
+	</bean>
+	<!-- appoint JPA implement adapter -->
+	<bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+	
+	<!-- configure Spring Data JPA -->
+ 	<jpa:repositories base-package="com.harmazing.spms"  transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory" />
+   
+	<!-- configure JPA Transaction -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean>
+    
+	<!-- 配置 Annotation 驱动，扫描@Transactional注解的类定义事务  -->
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+	<bean id="dynamicDataSource" class="com.harmazing.spms.base.util.DynamicDataSource">
+        <property name="targetDataSources">  
+            <map key-type="java.lang.String">  
+                <entry value-ref="dataSource" key="dataSource"></entry>  
+                <entry value-ref="dataSourceMail" key="dataSourceMail"></entry>  
+            </map>  
+        </property>  
+        <property name="defaultTargetDataSource" ref="dataSource">  
+        </property>  
+    </bean>
+
+    <task:annotation-driven/>
+	<task:executor id="executor" pool-size="5-10" queue-capacity="100"/>
+
+	<!-- 配置 JSR303 Bean Validator 定义 -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+	<!-- 上传文件拦截，设置最大上传文件大小   10M=10*1024*1024(B)=10485760 bytes -->  
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+        <property name="maxUploadSize" value="${web.maxUploadSize}" />  
+    </bean>
+	<!-- Production env -->
+ 	<beans profile="production">
+
+		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+			<!-- Connection Info -->
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+			<property name="testWhileIdle" value="true" />
+			<property name="testOnBorrow" value="true" />
+			<property name="validationQuery" value="SELECT 1 FROM DUAL" />
+			<property name="validationInterval" value="3000000" />
+			<property name="timeBetweenEvictionRunsMillis" value="500000" />
+			<property name="maxWait" value="1000000" />
+			<property name="removeAbandonedTimeout" value="30000" />
+			<property name="minEvictableIdleTimeMillis" value="600000" />
+			<property name="removeAbandoned" value="true" />
+			<property name="maxActive" value="${jdbc.pool.maxActive}" />
+			<property name="maxIdle" value="${jdbc.pool.minIdle}" />
+		</bean>
+		<bean id="dataSourceMail" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+			<!-- Connection Info -->
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+			<property name="testWhileIdle" value="true" />
+			<property name="testOnBorrow" value="true" />
+			<property name="validationQuery" value="SELECT 1 FROM DUAL" />
+			<property name="validationInterval" value="3000000" />
+			<property name="timeBetweenEvictionRunsMillis" value="500000" />
+			<property name="maxWait" value="1000000" />
+			<property name="removeAbandonedTimeout" value="3000" />
+			<property name="minEvictableIdleTimeMillis" value="6000000" />
+			<property name="removeAbandoned" value="true" />
+			<property name="maxActive" value="${jdbc.pool.maxActive}" />
+			<property name="maxIdle" value="${jdbc.pool.minIdle}" />
+		</bean>
+	</beans>
+	
+ 	<beans profile="dev">
+ 	<!-- 
+		<bean id="oracleDataSource" class="com.zaxxer.hikari.HikariDataSource">
+		    <property name="jdbcUrl" value="${jdbc.url}"></property>
+		    <property name="driverClassName" value="${jdbc.driver}"></property>
+		    <property name="username" value="${jdbc.username}"></property>
+		    <property name="password" value="${jdbc.password}"></property>
+		    <property name="connectionTimeout" value="600000"/>
+		    <property name="idleTimeout" value="600000"/>
+		    <property name="maxLifetime" value="1800000 "/>
+		    <property name="connectionTestQuery" value="select 1 from dual"></property>
+		   	    
+		</bean>
+		-->
+		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+			
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+			<property name="testWhileIdle" value="true" />
+			<property name="testOnBorrow" value="true" />
+			<property name="validationQuery" value="SELECT 1 FROM DUAL" />
+			<property name="validationInterval" value="30000" />
+			<property name="timeBetweenEvictionRunsMillis" value="50000" />
+			<property name="maxWait" value="100000" />
+			<property name="removeAbandonedTimeout" value="3000" />
+			<property name="minEvictableIdleTimeMillis" value="600000" />
+			<property name="removeAbandoned" value="true" />
+			<property name="maxActive" value="${jdbc.pool.maxActive}" />
+			<property name="maxIdle" value="${jdbc.pool.minIdle}" />
+		</bean>
+		 
+		<bean id="dataSourceMail" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+			<!-- Connection Info -->
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+			<property name="testWhileIdle" value="true" />
+			<property name="testOnBorrow" value="true" />
+			<property name="validationQuery" value="SELECT 1 FROM DUAL" />
+			<property name="validationInterval" value="300000" />
+			<property name="timeBetweenEvictionRunsMillis" value="50000" />
+			<property name="maxWait" value="100000" />
+			<property name="removeAbandonedTimeout" value="300" />
+			<property name="minEvictableIdleTimeMillis" value="600000" />
+			<property name="removeAbandoned" value="true" />
+			<property name="maxActive" value="${jdbc.pool.maxActive}" />
+			<property name="maxIdle" value="${jdbc.pool.minIdle}" />
+		</bean>
+	</beans>
+	
+</beans>

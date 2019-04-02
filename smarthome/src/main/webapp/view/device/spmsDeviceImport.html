@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>设备导入 - Powered By Clickmed</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="Cache-Control" content="no-store"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9,IE=10"/>
+    <link href="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../static/css/component/jqueryui/themes/base/jquery.ui.all.css"/>
+    <link href="/spms/resources/bootstrap/2.3.1/css_default/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/select2/select2.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/x-editable/css/bootstrap-editable.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/fancyBox/source/jquery.fancybox.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/common/platform.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/static/other/css/table.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="/spms/resources/favicon.ico">
+    <link href="/spms/resources/common/edit/edit_control.css" rel="stylesheet" type="text/css"/>
+    <link href="/spms/resources/common/maskLayer/masklayer.css" type="text/css" rel="stylesheet"/>
+    <script type='text/javascript' src="/spms/static/other/scripts/js/jquery.min.js"></script>
+	<script src="/spms/resources/jquery/jquery-migrate-1.1.1.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/jquery-validation/1.11.1/jquery.validate.method.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+	<!--[if lte IE 6]><link href="/spms/resources/bootstrap/bsie/css/bootstrap-ie6.min.css" type="text/css" rel="stylesheet" />
+	<script src="/spms/resources/bootstrap/bsie/js/bootstrap-ie.min.js" type="text/javascript"></script><![endif]-->
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]> <script src="/spms/resources/common/html5.js"></script><![endif]-->
+	<script src="/spms/resources/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+	<script src="/spms/resources/common/mustache.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/list/list.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/select2/select2.js" type="text/javascript"></script>
+	<script src="/spms/resources/select2/select2_locale_zh-CN.js" type="text/javascript"></script>
+	<script src="/spms/resources/x-editable/js/bootstrap-editable.js" type="text/javascript"></script>
+	<script src="/spms/resources/fancyBox/source/jquery.fancybox.js" type="text/javascript"></script>
+	<script src="/spms/resources/common/platform.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect-blind.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.progressbar.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.mouse.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.button.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.draggable.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.position.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.resizable.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.dialog.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/common/common.js"></script>
+    <script type="text/javascript" src="/spms/static/css/component/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/common/common-dialog.js"></script>
+	<script type="text/javascript" src="/spms/resources/common/maskLayer/maskLayer.js"> </script>
+	<script type="text/javascript" src="/spms/static/javascript/component/common/common-table.js"> </script>
+    <script src="/spms/static/other/scripts/js/ajaxfileupload.js" type="text/javascript"></script>
+    <style>
+        input[type="file"]{
+            margin-top: 20px;
+            margin-left: -10px;
+        }
+        .file-box {
+            position: relative;
+            width: 370px;
+            border: 1px solid rgba(0, 0, 0, .22);
+            margin:20px auto;
+            padding: 20px 40px;
+            background: #f2f2f2;
+            border-radius: 4px;
+        }
+
+        button {
+            color: #333;
+        }
+
+        .txt {
+            height: 22px;
+            border: 1px solid #cdcdcd;
+            width: 180px;
+        }
+
+        .btn {
+            background-color: #FFF;
+            border: 1px solid #CDCDCD;
+            height: 30px;
+            width: 65px;
+            color: #333;
+        }
+
+        .file {
+            position: absolute;
+            top: 0;
+            right: 80px;
+            height: 24px;
+            filter: alpha(opacity:0);
+            opacity: 0;
+            width: 260px
+        }
+    </style>
+
+</head>
+<body>
+<div class="file-box">
+
+    <input type='text' name='textfield' id='textfield' class='txt' style="border-radius: 4px"/>
+    <input type='button' class='btn' value='选择文件'/>
+    <input type="file" name="myfiles" class="file" id="myfiles" size="28"
+           onchange="document.getElementById('textfield').value=this.value"/>
+    <input type="button" name="submit" class="btn" value="上传"/>
+
+</div>
+<p style="margin-top: 20px"> <b>温馨提示：</b>请选择excel格式的文件上传</p>
+<script>
+    $(function () {
+        $(".btn[name='submit']").on("click", function () {
+            if ($("#textfield").val().length > 0) {
+                var value = $("#textfield").val();
+                var end =value.split(".")[1];
+                if (end=="xlsx" || end=="xls") {
+                    hmBlockUI();
+                    ajaxFileUpload();
+                } else {
+                    alert("您选择的文件格式不对")
+                }
+
+            }
+            else {
+                alert("请选择文件");
+            }
+        })
+        function ajaxFileUpload() {
+            $.ajaxFileUpload
+            (
+                    {
+                        url: getRootPath() +'/spmsDevice/import?type=' + getURLParam("type"), //用于文件上传的服务器端请求地址
+                        secureuri: false, //一般设置为false
+                        fileElementId: 'myfiles', //文件上传空间的id属性  <input type="file" id="file" name="file" />
+                        dataType: 'JSON', //返回值类型 一般设置为json
+                        success: function (data, status)  //服务器成功响应处理函数
+                        {
+                        	eval("var obj =" + data);
+                        	$.alertx({
+    								title: '提示信息',
+    								msg: obj.msg,
+    								height: 250,
+    								width:400,
+    								});
+							//$.alert(obj.msg);
+							hmUnBlockUI();
+                        },
+                        error: function (data, status, e)//服务器响应失败处理函数
+                        {
+							alert(e);
+							hmUnBlockUI();
+                        }
+                    }
+            )
+            return false;
+        }
+    });
+</script>
+</body>
+</html>

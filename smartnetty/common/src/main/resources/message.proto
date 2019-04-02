@@ -1,0 +1,61 @@
+// this is union types of message definition
+// concret message definition should be decleared in other file and imported
+// here
+
+package protobuf;
+
+option java_package="com.harmazing.protobuf";
+option java_outer_classname="MessageProtos";
+
+import "msgdef/login.proto";
+import "msgdef/sensor.proto";
+import "msgdef/gwinfo.proto";
+import "msgdef/log.proto";
+import "msgdef/event.proto";
+import "msgdef/command.proto";
+import "msgdef/device.proto";
+import "msgdef/debug.proto";
+
+message SpmMessage {
+    enum MsgType {
+        HEARTBEAT           = 0;    // heartbeat to keep talk alive
+        LOGIN               = 1;    // GW to SPM
+        LOGIN_RESPONSE      = 2;    // SPM to GW with service tree
+        GET_GWINFO          = 3;    // SPM to GW to get gw info
+        GWINFO_RESPONSE     = 4;    // GW to SPM with gw info
+        GET_SENSORINFO      = 5;    // SPM to GW to get sensor info
+        SENSORINFO_RESPONSE = 6;    // GW to SPM with sensor info
+        LOGREPORT           = 7;    // GW to SPM with logs
+        EVENTREPORT         = 8;    // GW to SPM with events
+        COMMAND             = 9;    // SPM to GW with control command
+        COMMAND_RESPONSE    = 10;   // GW to SPM with control command response
+		SERVICE_UPDATE      = 11;   // SPM to GW to update configuration
+
+		//
+		DEVICE_SPECIFIC		= 12;
+		HEARTBEAT_RESPONSE  = 13;
+		DEBUG               = 14;
+    }
+    message Header {
+        required MsgType type   = 1;            // message type
+        required uint32 seqnum  = 2;            // increment by 1 per request
+        required string session = 3;            // session info,empty for login
+    }
+    required Header header                              = 1;
+    // message body lists here
+    optional Login login                                = 2;
+    optional LoginResponse loginresponse                = 3;
+    optional GatewayInfoResponse gwinforesponse         = 4;
+    optional SensorInfo  sensorInfo                     = 5;
+    optional SensorInfoResponse  sensorInfoResponse     = 6;
+    optional Log        logReport                       = 7;
+    optional EventReport      eventReport               = 8;
+    optional Command    controlCommand                  = 9;
+    optional CommandResponse controlCommandResponse     = 10;
+    optional ServiceUpdate  serviceUpdate               = 11;
+
+	//
+    optional DeviceSpecific  device_specific            = 12;
+    optional Debug debug                                = 13;
+}
+

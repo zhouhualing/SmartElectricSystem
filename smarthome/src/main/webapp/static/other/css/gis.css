@@ -1,0 +1,160 @@
+.gis_main {
+	width: 100%;
+	height: 600px;
+}
+.gis_main_left {
+	width: 448px;
+	height: 600px;
+	float: left;
+}
+.ow_right_bottom_box {
+	float: left;
+}
+.gw_main_map_moreinfo_pull {
+	z-index: 20;
+	position: absolute;
+	margin-left: 448px;
+}
+.gis_main_right {
+	width: 812px;
+	height: 600px;
+	overflow: hidden;
+	margin-left: 448px;
+	margin-top: -600px;
+	float: left;
+}
+.gis_main_left_layer_control {
+	width: 190px;
+	height: 599px;
+	border-top: solid 1px #8c8c8c;
+	border-right: solid 1px #8c8c8c;
+	float: left;
+	background: url("../image/leftbg.png");
+}
+.gis_main_left_left_title {
+	width: 100%;
+	height: 35px;
+	margin: 0px 0 0 10px;
+	font-size: 16px;
+	line-height: 34px;
+}
+.gis_main_left_right_title {
+	text-align: left;
+	background-color:#7e8896;
+	background-color: rgba(0, 21, 51, 0.5);
+	font-size: 16px;
+	line-height: 35px;
+	color:#fff;
+	margin: 5px 6px 10px 5px;
+	text-indent: 10px;
+}
+.gis_plus_icon {
+	margin-left:5px;
+	float: left;
+	width: 13px;
+	height: 13px;
+	padding: 0;
+	font-size: 15px;
+	line-height:10px;
+	text-align: center;
+	border:1px solid #1c2f4b;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.check_box {
+	width: 15px;
+	height: 15px;
+	margin-top: 10px;
+	margin-left: 5px;
+	float: left;
+}
+.gw_main_map_moreinfo_l_content_list {
+	margin-top:0px;
+	height: auto;
+	overflow: hidden;
+	max-height: 446px;
+	overflow-y: auto;
+}
+.gw_main_map_moreinfo_l_content_list ul {
+	width: 180px;
+}
+.gis_main_left_right_order{ margin:15px 0 3px 130px; font-size:14px;}
+.gw_main_map_moreinfo_l_content_list ul li{ padding-left:6px;}
+.gw_main_map_moreinfo_l_content_list ul li a {
+	margin-left: 45px;
+	margin-top:-25px;
+	margin-right: 5px;
+	height:33px;
+	border:0px solid #1c2f4b!important;
+	background:transparent!important;
+	font-size:16px;
+	line-height:33px;
+	color:#000;
+	text-align:left;
+	margin:0px auto!important;
+	width:100%!important;
+	
+}
+.gw_main_map_moreinfo_l_content_list ul li a:hover {
+	color:#000;
+	background:transparent!important;
+}
+.gis_main_left_list_two_level {
+	width: 135px;
+	margin-left: 40px;
+	display: none;
+}
+.gis_main_left_report {
+	float: left;
+	margin-top:10px;
+	width: 180px;
+	margin-left:5px;
+}
+.oilsc_main_right_report {
+	float: left;
+	margin-top:10px;
+	width: 182px;
+	margin-left: 4px;
+}
+.gis_main_left_report ul a >li {
+	background:url("../image/zkrb_10.png") no-repeat 8px center #fff;
+	width:auto;
+	height:33px;
+	border:1px solid #e4e4e4;
+	margin: 5px 0px;
+	font-size:16px;
+	line-height:33px;
+	cursor:pointer;
+	padding-left:35px;
+}
+.gis_main_left_report2 ul a >li {
+	background:none;
+	width:auto;
+	height:33px;
+	border:1px solid #e4e4e4;
+	margin: 5px 0px;
+	font-size:14px;
+	line-height:33px;
+	cursor:pointer;
+	padding-left:5px;
+}
+.gis_main_left_report_out {
+	background:url("../image/zkrb_10.png") no-repeat 8px center #fff;
+	height:33px;
+	border:1px solid #e4e4e4;
+	margin: 5px 0px;
+	font-size:16px;
+	line-height:33px;
+	cursor:pointer;
+	padding-left:35px;
+}
+.gis_main_left_report_out span {
+	display:none;
+}
+.gis_main_left_report_out2 span {
+	display:none;
+}
+.gis_main_left_right {
+	border-top: solid 1px #8c8c8c;
+	margin-left: 188px;
+}

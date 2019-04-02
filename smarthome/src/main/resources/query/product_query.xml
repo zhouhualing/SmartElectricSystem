@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="productQuery" baseClass="com.harmazing.spms.product.entity.SpmsProduct" orderBy="subscribeDate#desc">
+		<column key ="spmsProductType.names" display="true" header="产品类型" allowSearch='true'/>
+		<column key ="status" display="true" header="产品状态" type="java.lang.Integer" allowSearch='true' dict="product_status"/>
+		<column key ="subscribeDate" allowSearch='true' display="true" header="产品订阅时间" type="java.util.Date" dateFormat="yyyy-MM-dd" />
+		<column key ="activateDate" allowSearch='true' display="true" header="产品激活时间"  type="java.util.Date" dateFormat="yyyy-MM-dd"/>
+		<column key ="expireDate" allowSearch='true' display="true" header="产品到期时间" type="java.util.Date"   dateFormat="yyyy-MM-dd"/>
+		<!-- <column key ="initialCostRmb" display="true" header="初始成本" />
+		<column key ="zhiLengMix" display="true" header="制冷最小温度"/>
+		<column key ="electricityCostRmb" display="true" header="用电成本" allowSearch='true' operator='LIKE'/> -->
+		<column key ="spmsUser.fullname" display="true" header="订户名称" allowSearch='true' operator='LIKE'/>
+	</query>
+
+	<query queryId="productContQuery" queryManager="spmsProductManager" queryMethod="getProductCont" >
+		<column key ="time" header="时间" />
+		<column key ="productType" header="产品类型" />
+		<column key ="count" header="销售数量" />
+		<column key ="mount" header="销售金额" />
+		<column key ="cost" header="成本" />
+		<column key ="profit" header="收益" />
+		<column key ="tCost" header="成本同比增长" />
+		<column key ="tProfit" header="收益同比增长" />
+	</query>
+
+</querys>

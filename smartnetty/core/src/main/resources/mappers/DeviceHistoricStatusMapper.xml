@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harmazing.mapper.DeviceHistoricStatusMapper">
+
+	<insert id="batchInsertHTSensorStatus" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			INSERT INTO spms_ht_sensor_status
+            (
+            	id, mac, temp, humidity    
+            ) 
+             VALUES 
+             (             
+             	#{item.id}, #{item.mac}, #{item.temp}, #{item.humidity}             
+             )  
+		</foreach>
+	</insert>
+	
+	<insert id="batchInsertWinDoorSensorStatus" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			INSERT INTO spms_win_door_status
+            (
+            	id, mac, open
+            ) 
+             VALUES 
+             (             
+             	#{item.id}, #{item.mac}, #{item.open}             
+             )  
+		</foreach>
+	</insert>
+	
+	<insert id="batchInsertPirSensorStatus" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			INSERT INTO spms_pir_status
+            (
+            	id, mac, alarmed
+            ) 
+             VALUES 
+             (             
+             	#{item.id}, #{item.mac}, #{item.alarmed}             
+             )  
+		</foreach>
+	</insert>
+	
+	<insert id="batchInsertElectricMaterStatus" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			INSERT INTO spms_onoff_pm_plug_status
+            (
+            	id, mac, onoff
+            ) 
+             VALUES 
+             (             
+             	#{item.id}, #{item.mac}, #{item.onoff}             
+             )  
+		</foreach>
+	</insert>
+</mapper>

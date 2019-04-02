@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* CSS Document */
+
+.right{
+	width:100%;
+	height:auto;
+	min-height:100%;
+	background:#dde4f1;
+	padding-top:19px;
+	padding-bottom:1px;
+	}
+.right_nav{
+	color:#333;
+	font-size:14px;
+	margin-left:33px;
+	}
+	
+.right_con{
+	max-width:100%;
+	height:100%;
+	background:#FFF;
+	margin:3px;
+	padding-left:1px;
+	padding-right:1px;
+	padding-bottom:50px;
+	position: relative;
+	}
+.right_title{
+	float:left;
+	font-size:14px;
+	margin-top:32px;
+	margin-left:24px;
+	}
+.right_text{
+	width:142px; 
+	height:26px;
+	margin-top:32px;
+	background:url(../images/right_textbg.png) no-repeat;
+	line-height:26px;
+	text-indent:5px;
+	margin-left:21px;
+	float:left;
+	}
+.right_btn{
+	margin-top:32px;
+	}
+	
+	
+.hm_page{
+	max-width:100%;
+	padding-left:7px;
+	padding-right:16px;
+	margin-top:15px;
+	}
+.hm_page p{
+	float:left;
+	font-size:14px;
+	font-family:"微软雅黑";
+	}
+.hm_page ul{
+	float:right;
+	}
+.hm_page ul li{
+	float:left;
+	}
+.hm_page ul li a{
+	display:block;
+	padding:7px 14px;
+	background:#FFF;
+	border:1px solid #dddddd;
+	border-radius: 15px;
+	color:#428bca;
+	}
+	
+p {
+	margin: 0 0 5px;
+}

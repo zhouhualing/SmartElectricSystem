@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html style="overflow-x:hidden;overflow-y:auto;">
+	<head>
+		<title>工单管理管理 - Powered By Clickmed</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta http-equiv="Cache-Control" content="no-store" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=7,IE=9,IE=10" />
+		<link href="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.css" type="text/css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../static/css/component/jqueryui/themes/base/jquery.ui.all.css"/>
+		<link href="/spms/resources/bootstrap/2.3.1/css_default/bootstrap.min.css" type="text/css" rel="stylesheet" />
+		<link href="/spms/resources/select2/select2.css" type="text/css" rel="stylesheet" />
+		<link href="/spms/resources/x-editable/css/bootstrap-editable.css" type="text/css" rel="stylesheet" />
+		<link href="/spms/resources/fancyBox/source/jquery.fancybox.css" type="text/css" rel="stylesheet" />
+		<link href="/spms/resources/common/platform.min.css" type="text/css" rel="stylesheet" />
+		<link href="/spms/static/other/css/table.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="/spms/resources/favicon.ico">
+		<link href="/spms/resources/common/edit/edit_control.css" rel="stylesheet" type="text/css" />
+		<link href="/spms/resources/common/maskLayer/masklayer.css" type="text/css" rel="stylesheet" />
+        <style>
+            #mark{
+                min-width:84%!important;
+                width: 84%!important;
+            }
+        </style>
+	</head>
+<body>
+<ol class="breadcrumb">
+    您的当期位置：
+    <li ><a>工单管理</a></li>
+    >>
+    <li><a>全部工单</a></li>
+</ol>
+	
+	<div id="collapseOne">
+		<form id="searchForm" class="breadcrumb form-search" >
+			<div style="margin-top: 8px;">
+				<label style="margin-left:16px;">工单类型: </label>
+						<select id="type" name="type" style="width:220px"  dictSrc="workorder_type" class="the_select2">
+									<option value="">--请选择--</option>
+						</select>
+				<label>工单状态: </label>
+						<select id="status" name="status" style="width:220px" dictSrc="workorder_status" class="the_select2">
+									<option value="">--请选择--</option>
+						</select>
+			
+				&nbsp;<input id="btnSubmit" class="btn btn-primary" type="button" value="查询" style="margin-left:62px;" onclick="doQuery()"/>
+				
+	         </div>
+        </form>
+	</div>
+	<div>
+	    <div id="reportInfoQuery" class="clickmedCommonTable1"  queryId="workorderQuery" conf="{showSelect:true,selectText:' ',selectType:'CHECKBOX',title:'工单列表',customBtn:true,createDelOpp:false,autoLoad:false,selectText:' ',rowClick:rowClick,createFun:createFun,deleteBtn:false,deleteFun:deleteFun,deleteBtnTxt:'删除工单',createBtnTxt:'添加工单',createBtn:false}" searchDiv="collapseOne" operatorArr="oppObj">
+		</div>
+	</div>
+
+	<script type='text/javascript' src="/spms/static/other/scripts/js/jquery.min.js"></script>
+	<script src="/spms/resources/jquery/jquery-migrate-1.1.1.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/jquery-validation/1.11.1/jquery.validate.method.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+	<!--[if lte IE 6]><link href="/spms/resources/bootstrap/bsie/css/bootstrap-ie6.min.css" type="text/css" rel="stylesheet" />
+	<script src="/spms/resources/bootstrap/bsie/js/bootstrap-ie.min.js" type="text/javascript"></script><![endif]-->
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]> <script src="/spms/resources/common/html5.js"></script><![endif]-->
+	<script src="/spms/resources/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+	<script src="/spms/resources/common/mustache.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/list/list.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/select2/select2.js" type="text/javascript"></script>
+	<script src="/spms/resources/select2/select2_locale_zh-CN.js" type="text/javascript"></script>
+	<script src="/spms/resources/x-editable/js/bootstrap-editable.js" type="text/javascript"></script>
+	<script src="/spms/resources/fancyBox/source/jquery.fancybox.js" type="text/javascript"></script>
+	<script src="/spms/resources/common/platform.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect-blind.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.progressbar.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.mouse.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.button.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.draggable.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.position.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.resizable.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.dialog.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/common/common.js"></script>
+    <script type="text/javascript" src="/spms/static/css/component/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/common/common-dialog.js"></script>
+	<script type="text/javascript" src="/spms/resources/common/maskLayer/maskLayer.js"> </script>
+	<script type="text/javascript" src="/spms/static/javascript/component/common/common-table.js"> </script>
+	<script type="text/javascript" src="/spms/static/javascript/dialog/dialog.js"> </script>
+	<script type="text/javascript" src="/spms/static/javascript/workorder/workorderList.js"></script>
+</body>
+</html>

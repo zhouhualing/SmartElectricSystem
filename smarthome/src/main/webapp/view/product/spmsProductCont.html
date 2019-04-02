@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html style="overflow-x:hidden;overflow-y:auto;">
+<head>
+    <title>产品统计 - Powered By Clickmed</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="Cache-Control" content="no-store"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9,IE=10"/>
+    <link href="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/bootstrap/2.3.1/css_default/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/select2/select2.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/x-editable/css/bootstrap-editable.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/fancyBox/source/jquery.fancybox.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/resources/common/platform.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/spms/static/other/css/table.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="/spms/resources/favicon.ico">
+    <link href="/spms/resources/common/edit/edit_control.css" rel="stylesheet" type="text/css"/>
+    <link href="/spms/resources/common/maskLayer/masklayer.css" type="text/css" rel="stylesheet"/>
+<style>
+    .solid{
+        border-bottom: 2px solid #a3a3a3;
+        height: 400px;
+
+        border-radius: 4px;
+        background: #fff;
+        margin:  10px 10px;
+        padding: 10px;
+    }
+</style>
+
+</head>
+<body>
+<ol class="breadcrumb">
+    您的当期位置：
+    <li ><a>产品管理</a></li>
+    >>
+    <li><a >产品统计</a></li>
+</ol>
+<div id="collapseOne">
+    <form id="searchForm" class="breadcrumb form-search">
+        <input id="type" name="type" type="hidden" value="1">
+
+        <div style="margin-top: 8px;" id="searchDiv">
+            <label style="margin-left:16px;">选择类型: </label>
+            <select id="kinds" name="names" style="width:208px" class="required" type="text" value="" maxlength="200">
+            </select>
+            <label>开始日期：</label>
+            <input id="beginDate"  name="createDate" type="text" readonly="readonly" maxlength="20"
+                   class="input-small Wdate"
+                   placeholder="- -" onclick="WdatePicker({dateFmt:'yyyy年M月',isShowClear:false});"/>
+            <label>结束日期：</label>
+            <input id="endDate"  name="createDate" type="text" readonly="readonly" maxlength="20"
+                                       class="input-small Wdate"
+                                       placeholder="- -"
+                                       onclick="WdatePicker({dateFmt:'yyyy年M月',isShowClear:false});"/>
+            <input id="btnSubmit" class="btn btn-primary" type="button" value="查询" onclick="doQuery()"/>
+        </div>
+    </form>
+</div>
+<div id="xiaoshoujine"  class="solid"></div>
+<div id="chengbenshouyi" class="solid"></div>
+<div id="chanpinchengben" class="solid"></div>
+<div id="reportInfoQuery" class="clickmedCommonTable1" style="margin-bottom: 50px"  queryId="productContQuery" conf="{initFun:initFun,onQueryEnd:queryEnd,pageMaxCount:10,showSelect:true,showTitle:true,selectText:' ',selectType:'CHECKBOX',title:'产品统计列表',autoLoad:false,createDelOpp:false,selectText:' ',createBtn:false,deleteBtn:false}" searchDiv="searchDiv" >
+</div>
+<script type='text/javascript' src="/spms/static/other/scripts/js/jquery.min.js"></script>
+<script src="../../static/other/scripts/js/highstock.js"></script>
+<script src="/spms/resources/jquery/jquery-migrate-1.1.1.min.js" type="text/javascript"></script>
+<script src="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
+<script src="/spms/resources/jquery-validation/1.11.1/jquery.validate.method.min.js" type="text/javascript"></script>
+<script src="/spms/resources/bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/spms/resources/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script src="/spms/resources/common/mustache.min.js" type="text/javascript"></script>
+<script src="/spms/resources/list/list.min.js" type="text/javascript"></script>
+<script type="application/javascript" src="../../static/other/scripts/js/chartstyle.js"></script>
+<script type="application/javascript" src="../../static/other/scripts/js/d3-3.4.1.min.js"></script>
+<script type="text/javascript" src="/spms/static/javascript/component/common/common.js"></script>
+<script src="/spms/resources/select2/select2.js" type="text/javascript"></script>
+<script type="text/javascript" src="/spms/static/javascript/component/common/common-table.js"> </script>
+
+<script type="text/javascript">
+
+    $("#kinds").select2()
+</script>
+<script src="../../static/javascript/product/productCont.js"></script>
+</body>
+</html>

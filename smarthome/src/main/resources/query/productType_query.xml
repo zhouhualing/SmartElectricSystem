@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="productTypeQuery" baseClass="com.harmazing.spms.product.entity.SpmsProductType">
+		<column key ="names" display="true" header="产品类型名称" allowSearch='true' operator='LIKE'/>
+		<column key ="area.name" display="true" header="产品所属区域"   operator='LIKE'/>
+		<column key ="muluId" display="true" header="产品目录" dict="product_mulu" allowSearch='true' operator='EQ'/>
+		<column key ="status" display="true" header="产品类型状态"  dict="producttype_status" />
+		<column key ="validPeriod" display="true" header="产品有效期限" dict="producttype_validperiod"  operator='LIKE'/>
+		<column key ="countRmb" display="true" header="产品总费用"  operator='LIKE'/>
+		<column key ="lianDong" display="true" dict="producttype_liandong" header="传感器联动"/>
+		<column key ="kongTiaoCount" display="true" header="空调最大绑定数"/>
+		<column key ="chuangGanCount" display="true" header="传感器最大绑定数"/>
+		<column key ="describes" display="true" header="描述信息"/>
+		<column key ="deleteStauts" display="false" allowSearch="true" operator="NEQ"/>
+	</query>
+</querys>

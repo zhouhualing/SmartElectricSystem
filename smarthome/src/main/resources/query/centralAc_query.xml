@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="centralAcQuery" baseClass="com.harmazing.spms.device.entity.SpmsCentralAc">
+		<column key ="sn" display="true" header="设备SN" allowSearch='true' operator='LIKE'/>
+		<column key ="mac" display="true" header="设备MAC" allowSearch='true' operator='LIKE'/>
+		<column key ="vender" display="true" header="供应商" />
+		<column key ="model" display="true" header="型号" />
+		<column key ="hardware" display="true" header="硬件版本"  />
+		<column key ="software" display="true" header="出厂软件版本"  />
+		<column key ="storage" display="true" header="所在仓库" allowSearch='true' dict="device_storage"/>
+		<column key ="cursoft" display="true" header="当前软件版本" allowSearch='true' operator='LIKE'/>
+		<column key ="type" type="java.lang.Long" display="false" allowSearch='true'/>
+		<column key ="status" type="java.lang.Long" display="false" allowSearch='true'/>
+		<column key ="operStatus" type="java.lang.Long" display="false" allowSearch='true'/>
+	</query>	
+</querys>

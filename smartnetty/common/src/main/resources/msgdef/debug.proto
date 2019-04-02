@@ -1,0 +1,25 @@
+package protobuf;
+
+option java_package="com.harmazing.protobuf";
+option java_outer_classname="DebugProtos";
+
+message Connect {
+
+    required string type    = 1;
+    required string mac     = 2;
+}
+
+message Disconnect {
+    required string type    = 1;
+}
+
+message Text {
+    required string type    = 1;
+    required string msg     = 2;
+}
+
+message Debug {
+    optional Connect    connect       = 1;
+    optional Disconnect disconnect    = 2;
+    optional Text       text          = 3;
+}

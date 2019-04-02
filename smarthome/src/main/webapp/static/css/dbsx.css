@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+
+.hm_head{
+	width:100%;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	background:#cdcdcd;
+	position: fixed;
+	z-index: 999;
+	}
+.hm_list{
+	width:auto;
+	min-height:240px;
+	height:auto;
+	background-color:#eee;
+	position: relative;
+    top: 30px;
+	}
+	
+.hm_list ul a{
+	display:block;
+	width:auto;
+	height:58px;
+	padding-top:10px;
+	background-color:#e1ecf6;
+	position:relative;
+	background:url(../images/line.png) no-repeat bottom #ededed;s
+	}
+.hm_list ul a:hover{
+	background:url(../images/list_hover.png) repeat-x;
+	}
+.hm_list ul h3{
+	line-height:44px;
+	float:left;
+	margin-left:8px;
+	color:#676767;
+	font-weight: 400;
+	}
+.hm_list ul li{
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	font-size:14px;
+	color:#999;
+	margin-left:75px;
+	color:#3e79db;
+	}
+.hm_list ul span{
+	position:absolute;
+	right:11px;
+	top:13px;
+	color:#999;
+	}
+.hm_list ul a p img{
+	width:38px;
+	position:absolute;
+	left:25px;
+	top:13px;
+	}
+.hm_list ul .hm_title{
+	font-size:12px;
+	color:#676767;
+	margin-top:4px;
+	}
+.hm_loading{
+	width:auto;
+	height:27px;
+	text-align:center;
+	line-height:27px;
+	background:#bbb;
+	}
+.hm_over{
+	width:auto;
+	height:27px;
+	text-align:center;
+	line-height:27px;
+	background:#bbb;
+	}
+
+/* .hm_right_down{ */
+/* 	width:100%; */
+/* 	height:46px; */
+/* 	background:#cdcdcd; */
+/* 	padding-top:6px; */
+/* 	} */
+/* .curren_page p{ */
+/* 	text-align:center; */
+/* 	font-size:14px; */
+/* 	} */
+/* .curren_page p span{ */
+/* 	color:#7c9adf; */
+/* 	} */
+/* .hm_down_page{ */
+/* 	margin-left:95px; */
+/* 	} */
+/* .hm_down_page span a{ */
+/* 	display:block; */
+/* 	width:45px; */
+/* 	height:25px; */
+/* 	line-height:25px; */
+/* 	text-align:center; */
+/* 	font-size:14px; */
+/* 	float:left; */
+/* 	} */
+/* .hm_right_down span a:hover{ */
+/* 	color:#FFF; */
+/* 	} */

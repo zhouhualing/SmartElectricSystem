@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*table style*/
+.table_view {
+	font-size: 14px;
+	line-height: 28px;
+}
+.table_view tr td {
+	text-align: left;
+	font-family: Arial, "黑体"!important;
+	color: #333;
+}
+.table_view tr td.td_name {
+	text-align: right;
+	padding-right: 10px;
+	color: #999;
+}
+table.table_list {
+	border-right: 1px solid #BBB;
+	border-bottom: 1px solid #BBB;
+}
+table.table_list tr th {
+	background: url(../images/th_bg.jpg) repeat-x;
+	height: 43px;
+	padding-left: 10px;
+	color: #333;
+	font-family: "黑体";
+	font-size: 14px;
+	line-height: 43px;
+	border-left: 1px solid #BBB;
+}
+table.table_list tr td {
+	font-size: 14px;
+	line-height: 40px;
+	border-left: 1px solid #BBB;
+	border-top: 1px solid #BBB;
+	background: #FFF;
+	font-family: "宋体";
+	padding-left: 10px;
+}
+table.table_list tr.td_bg td {
+	background: #f3f4f5;
+}

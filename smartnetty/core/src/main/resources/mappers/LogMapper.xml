@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harmazing.mapper.LogMapper">
+	<!-- -->
+	<insert id="batchInsertGWLog" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			INSERT INTO spms_gw_status
+	            (`id`, `device_id`, `status`, `user_id`, `create_time`) VALUES 
+	            (#{item.id}, #{item.deviceId}, #{item.status}, #{item.userId}, #{item.timestamp})
+		</foreach>
+	</insert>
+	
+	<insert id="batchInsertWDLog" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			INSERT INTO spms_win_door_status
+            (`id`, `device_id`, `operate_type`, `operate_time`) VALUES 
+            (#{item.id}, #{item.deviceId}, #{item.on}, #{item.timestamp})
+		</foreach>
+	</insert>
+</mapper>

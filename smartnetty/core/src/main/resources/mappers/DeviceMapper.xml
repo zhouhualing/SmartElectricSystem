@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harmazing.mapper.DeviceMapper">	
+	<resultMap id="DeviceResultMap" type="Device">
+		<result property="id" column="id" />
+		<result property="type" column="type_code" />
+		<result property="vendor" column="vendor" />
+		<result property="model" column="model" />
+		<result property="mac" column="mac" />
+		<result property="sn" column="sn" />
+		<result property="hardware" column="hardware" />
+		<result property="software" column="software" />
+		<result property="currentSoftware" column="cursoft" />
+		<result property="operationStatus" column="operStatus" />
+		<result property="userId" column="user_id" />
+		<result property="disable" column="disable" />
+		<result property="session" column="sessionId" />
+		<result property="delete" column="del_flag" />
+		<result property="onOff" column="onOff" />
+		<result property="temperature" column="temp" />
+		<result property="acTemperature" column="acTemp" />
+		<result property="power" column="power" />
+		<result property="speed" column="speed" />
+		<result property="direction" column="direction" />
+		<result property="startTime" column="startTime" />
+		<result property="direction" column="direction" />
+		<result property="mode" column="mode" />
+		<result property="remain" column="remain" />
+		<result property="accumulatePower" column="accumulatePower" />
+		<result property="server" column="server" />
+	</resultMap>
+
+	<resultMap id="AllGWResultMap" type="Map">
+		<result property="gwId" column="gwId" />
+		<result property="mac" column="mac" />
+		<result property="sn" column="sn" />
+		<result property="userId" column="userId" />
+		<result property="status" column="status" javaType="String" />
+		<result property="disable" column="disable" javaType="String" />
+		<result property="deviceId" column="deviceId" />
+		<result property="deviceMac" column="deviceMac" />
+		<result property="deviceType" column="deviceType" javaType="String" />
+		<result property="coolerStart" column="coolerStart" javaType="String" />
+		<result property="coolerEnd" column="coolerEnd" javaType="String" />
+		<result property="heaterStart" column="heaterStart" javaType="String" />
+		<result property="heaterEnd" column="heaterEnd" javaType="String" />
+		<result property="sensorEnabled" column="sensorEnabled" javaType="String" />
+		<result property="mode" column="mode" javaType="String" />
+	</resultMap>
+
+	<update id="batchUpdateDevices" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open=""
+			close="" separator=";">
+			update spms_device
+			<set>	
+				<if test="item.operationStatus!=null">		
+					operStatus=#{item.operationStatus},	
+				</if>	
+				<if test="item.onOff!=null">		
+					onOff=#{item.onOff},	
+				</if>
+				<if test="item.temperature!=null">			
+					temp=#{item.temperature},
+				</if>
+				<if test="item.acTemperature!=null">
+					acTemp=#{item.acTemperature},
+				</if>
+				<if test="item.power!=null">
+					power=#{item.power},
+				</if>
+				<if test="item.speed!=null">
+					speed=#{item.speed},
+				</if>
+				<if test="item.direction!=null">
+					direction=#{item.direction},
+				</if>
+				<if test="item.startTime!=null">
+					startTime=#{item.startTime},
+				</if>
+				<if test="item.mode!=null">
+					mode=#{item.mode},
+				</if>
+				<if test="item.remain!=null">
+					remain=#{item.remain},
+				</if>
+				<if test="item.accumulatePower!=null">
+					accumulatePower=#{item.accumulatePower},
+				</if>
+				<if test="item.session!=null">
+					sessionId=#{item.session},
+				</if>
+				<if test="item.server!=null">
+					server=#{item.server},
+				</if>
+				<if test="item.hardware!=null">
+					hardware=#{item.hardware},
+				</if>
+				<if test="item.software!=null">
+					cursoft=#{item.software},
+				</if>
+				 id=id
+			</set>
+			where id = #{item.id}
+		</foreach>
+	</update>
+	<insert id="batchInsertDevice" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			INSERT INTO spms_device
+            (id,vender    
+            , model, hardware, software,mac,sn, storage,type
+            <!--  
+            cursoft,status,operStatus, 
+            sessionId,storage,type 
+            -->          
+            ) 
+             VALUES 
+             (             
+             #{item.id},#{item.vender}
+             , 1, #{item.hardware}, #{item.software},#{item.mac}, #{item.sn}, #{item.storage},1
+             <!--  
+             ,#{item.currentSoftware}, #{item.status}, #{item.operationStatus}, #{item.session},#{item.type}
+           -->
+             )  
+		</foreach>
+	</insert>
+</mapper>

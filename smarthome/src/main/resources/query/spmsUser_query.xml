@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="spmsUserQuery" baseClass="com.harmazing.spms.user.entity.SpmsUser" orderBy="createDate#desc" useEntity="true" customerDecoration="spmsUserManager.getSpmsUserQuery">
+		<column key ="type" display="true" header="订户类型" dict="spmsuser_type"/>
+		<column key ="bizArea.name" display="true" header="业务区域" allowSearch='true'/>
+		<column key ="eleArea.name" display="true" header="用电区域" allowSearch='true'/>
+		<column key ="fullname" display="true" header="姓名" allowSearch='true' operator='LIKE'/>
+		<column key ="address" display="true" header="住址"  />
+		<column key ="mobile" display="true" header="电话"  allowSearch='true' operator='LIKE'/>
+		<column key ="productSize" display="true" header="产品订购" allowSearch='true' operator='LIKE'/>
+		<column key ="ammeter" display="true" header="电表号" allowSearch='true' operator='LIKE'/>
+		<column key ="spmsDevice.mac" display="true" header="绑定网关" allowSearch='true' operator='LIKE'/>
+		<column key ="user.status" display="true" header="状态" dict="user_status" allowSearch='true'/>
+		<column key ="bizArea.parentIds" display="false" allowSearch='true' operator='LIKE'/>
+		<column key ="eleArea.parentIds" display="false" allowSearch='true' operator='LIKE'/>
+		<column key ="spmsUserProductBindings.spmsProductType.id" display="false" allowSearch='true' operator='LIKE'/>
+	</query>
+</querys>

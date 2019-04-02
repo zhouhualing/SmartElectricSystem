@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>智能用电平台-用户端-个人信息</title>
+    <link href="../../resources/spms/css/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+        var _ctx = "/spmuc/resources";
+        var userid = "";
+        var ctx = "/spmuc/a";
+
+        var minTemp = 18;
+        var maxTemp = 32;
+        var allowHeat = 1;
+        var spmsuser = JSON.parse(localStorage["spmsuser"]);
+    </script>
+</head>
+<body>
+<input type="hidden" name="gwid" value="5a77a8c629f446ad870f32ac5736f67e"/>
+
+<div id="top">
+    <div class="top">
+        <div class="logo">
+            <img src="../../resources/images/logo.png" width="380"
+                 height="49"/>
+        </div>
+        <div class="top_right">
+            <a href="user_new.html" class="index"></a>
+            <a href="javascript:void(0);" class="site"></a>
+            <a href="#" class="personal hover"></a>
+            <a onclick="doLoginOut();" class="exit"></a>
+        </div>
+        <div class="top_center">
+            <div class="fl pr_50 pt_27">
+                室外温度<span class=" font_family_a"><i class="fz_28">33</i></span>℃
+            </div>
+            <div class="fl pt_30">
+                北京 朝阳<span class="weather_cloud">多云</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="content_kt">
+        <div class="content_kt_list">
+            <div class="content_gerenzhongxin">
+                <div class="base_info">
+                    <table>
+                        <tr>
+                            <td colspan="2"></td>
+                            <th colspan="2">个人中心</th>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td>用户名:</td>
+                            <td class="tag_content">邵寒</td>
+                            <td>用户类型:</td>
+                            <td class="tag_content">试用</td>
+                            <td>业务区域:</td>
+                            <td class="tag_content">门头沟区</td>
+                        </tr>
+                        <tr>
+                            <td>用电区域:</td>
+                            <td class="tag_content">北配区七</td>
+                            <td>电话:</td>
+                            <td class="tag_content">13800002001</td>
+                            <td>邮箱:</td>
+                            <td class="tag_content">13800002001@163.com</td>
+                        </tr>
+                        <tr>
+                            <td>住址:</td>
+                            <td class="tag_content">北京市门头沟区</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="password_container">
+                    <span></span>
+                    <span class="current_pass"></span>
+
+                    <span><em>修改密码</em><i class="show_or_hide_button down"></i></span>
+                    <!--<span class="show_or_hide">收起</span>-->
+                </div>
+                <div class="change_password">
+                    <label class="title">当前密码:</label><label><input type="password" id="oldpwd"/></label><br>
+                    <label class="title">新密码:</label><label><input type="password" id="newpwdone"/></label><br>
+                    <label class="title">确认新密码:</label><label><input type="password" id="newpwdtwo"/></label><br>
+                    <label class="title"></label><label><input type="button" value="确  认"
+                                                               id="modifyPwd_button"/></label>
+                </div>
+            </div>
+
+            <div class="content_gerenzhongxin_bottom"></div>
+        </div>
+    </div>
+
+
+</div>
+<script src="../../resources/spms/jquery-2.1.1.js"></script>
+<script src="../../resources/spms/hammer.2.0.3.min.js"></script>
+<script src="../../resources/spms/harmazing.chart.ControlBar.js"></script>
+<script src="../../resources/spms/highstock.js"></script>
+<script type="application/javascript" src="../../resources/spms/chartstyle.js"></script>
+<script type="text/javascript" src="/spms/static/javascript/component/common/common.js"></script>
+<script type="text/javascript" src="/spms/static/javascript/dialog/dialog.js"></script>
+<script type="text/javascript" src="/spms/static/css/component/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="/spms/static/javascript/component/common/common-dialog.js"></script>
+<script type="application/javascript" src="../../resources/spms/d3-3.4.1.min.js"></script>
+<script type="application/javascript" src="../../resources/spms/progress.js"></script>
+<script type="application/javascript" src="../../resources/spms/harmazing.plugin.WindowPlugin.js"></script>
+<script>
+    function doLoginOut() {
+        var dto = {};
+        doJsonRequest("/doLoginOut", dto, function (data) {
+            if (data.result) {
+                window.location.href = "login.html"
+            } else {
+                $.alert("退出失败。");
+            }
+        })
+    }
+</script>
+</body>
+
+</html>

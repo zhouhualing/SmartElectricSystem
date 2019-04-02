@@ -1,0 +1,26 @@
+package IDL;
+option java_package = "com.harmazing.protobuf";
+option java_outer_classname = "CommandProtos";
+
+message AirConditionerControl {
+    enum CommandType {
+        ON       = 0;
+        OFF      = 1;
+        MODE_SET = 2;
+        FAN_SET  = 3;
+        TEMP_SET = 4;
+    }
+    required string sensorid   = 1;
+    required CommandType type  = 2;
+    optional string string_parameter = 3;
+    optional uint32 int_parameters = 4;
+}
+
+message Command {
+    optional AirConditionerControl acControl = 1;
+}
+
+message CommandResponse {
+    required uint32         returnCode          = 1;
+    optional string         faultString         = 2;
+}

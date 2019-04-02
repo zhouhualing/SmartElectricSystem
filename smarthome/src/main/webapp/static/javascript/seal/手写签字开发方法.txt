@@ -1,0 +1,43 @@
+PC端手写签字（私章）开发方法：
+
+说明：手写签字分为7个区域，分别用字母表示签字区域：SZ市长，FS副市长，MS秘书长，FM副秘书长，FZ法制办，GK信息公开审核，QT其他(核稿人等其他需要签字的地方)
+
+1、在页面中注释掉原有的签字信息显示，在相应区域替换成下面的DIV。
+<div id ="szoption" ></div> 市长
+<div id ="fsoption" ></div> 副市长
+<div id ="msoption" ></div> 秘书长
+<div id ="fmoption" ></div> 副秘书长
+<div id ="fzoption" ></div> 法制办
+<div id ="qtoption" ></div> 其他
+<div id ="gkoption" ></div> 信息公开审核
+
+
+2、在页面引入js
+
+<script type="text/javascript" src="../../static/javascript/seal/websignLoad.js"></script>
+<script type="text/javascript" src="../../static/javascript/seal/websignFunction.js"></script>
+
+3、在页面初始化的时候，加载websignFunction.js中的两个方法。
+
+setSealSvr()；
+loadSeal(businessId,businessType)；//businessId 业务ID，businessType 业务类型
+
+4、页面手写签字显示CSS控制在static/css/component/common/css.css文件中，可根据实际页面情况在自己页面做修改。
+
+5、当相应的人员需要手写签字时，调用websignFunction.js中的AddSeal方法。
+
+AddSeal(businessId,businessType,sealName,sealText,area)；
+
+参数说明：
+	businessId 业务ID
+	businessType 业务类型
+	sealName 印章名
+	sealText 印章绑定的内容（即领导签字是实际内容）
+	area 盖章区域代码（SZ市长，FS副市长，MS秘书长，FM副秘书长，FZ法制办，GK信息公开审核，QT其他）
+
+注意事项：
+	印章名生成规则
+		在websignFunction.js中定义了7个参数，分别表示各个区域盖章的数目，默认为0，每次页面初始化加载loadSeal方法会修改这7个参数个值。
+		印章名生成规则为:盖章区域代码+该区域盖章数目
+		比如：市长区域没有盖章，则参数szsize为0，印章名则为:即SZ+0得到SZ0 
+

@@ -1,0 +1,158 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*-----------------------------------------------------------------------------------*/
+body,html{margin:0 auto; padding:0; font-size:12px; font-family:"宋体";}
+img{border:0;}
+h1,h2,h3,h4,h5,h6,hr,blockquote,p,pre,ul,ol,li,dl,dt,dd,form,fieldset,legend,button,input,textarea,th,td{margin:0; padding:0;}
+ul,ol,li{list-style:none;}
+sup{vertical-align:top;}
+sub{vertical-align:bottom;}
+legend{ color:#000;}
+fieldset{border:0;}
+buttoon,input,select,textarea{font-size:100%;}
+table{border-collapse:collapse; border-spacing:0;}
+.clear{clear:both;}
+.clearfix:after{content:"."; display:block; clear:both; height:0; visibility:hidden;}
+.clearfic{display:inline-block; overflow:hidden;}
+a:visited,a:link{ text-decoration:none; color:#454545; }
+a:hover{ color:#e43f04; }
+/*-----------------------------------------------------------------------------------*/
+
+/*后台登录页*/
+.warp{ background:url(../images/bg.jpg) repeat-x ; width:100%; height:1000px;}
+.login{ background:url(../images/loginbg.jpg) no-repeat; width:321px; height:172px; margin:0 auto; padding:234px 152px 104px 368px; }
+.login table tr td{line-height:29px; height:29px; font-size:14px; overflow:hidden; margin:0px; padding:0px;}
+#loginForm{ position:relative; right:90px; top:10px}
+.login table tr td select{ font-size:12px; width:140px; height:22px;  background-color:#ffffff; border:0px; border:1px solid #cccccc; font-family:"宋体";}
+.dlk{ width:140px; height:22px;  background-color:#ffffff;  border:1px solid #cccccc; }
+.login table tr td .dlbtn{ background:url(../images/loginbtn.png) no-repeat; width:62px; height:58px; border:0px; margin-top:10px; -margin-top:0px;+margin-top:0px;}
+.logo{ position:relative; top:-120px; left:-130px; z-index:99; width:178px; height:90px;}
+
+/*后台内页样式*/
+.header{
+	width:100%;
+	height:117px;
+	margin:0 auto;
+	background-color: #FFF;
+	background-image: url(../images/topbg.png);
+	background-repeat: repeat-x;
+}
+.top{ height:70px; padding-right:24px; padding-top:10px; padding-bottom:4px;}
+.logo2{
+	width:382px;
+	height:72px;
+	float:left;
+	padding-left:10px;
+}
+.help{  float:right; text-align:right; color:#fff!important; line-height:70px;}
+.help a{ color:#fff!important; padding:0px 8px;}
+.help a:hover{ color:#F3A321!important; text-decoration:underline; padding:0px 8px;}
+
+
+.nav{ padding-left:208px;}
+.nav ul li{ float:left; color:#fff; background:url(../images/navbg.png) no-repeat; width:80px; height:33px; text-align:center; line-height:33px; margin:0px 1px;}
+.nav ul li a{ color:#fff!important; }
+.nav ul li a:hover{ background:url(../images/navbg2.png) no-repeat; width:80px; height:33px; display:block; color:#fff!important;}
+.navtag{ background:url(../images/navbg2.png) no-repeat; width:80px; height:33px; display:block;}
+
+.rightimg{background:url(../images/trimg.jpg) no-repeat; width:249px; height:117px; float:right;}
+
+.content{ width:100%; height:auto; overflow:hidden; background-color:#bdd3f0; margin:0 auto;}
+/*.left{ width:208px; background:'#f5a21d'; height:100%; overflow:hidden; padding:18px 0px 38px 0px;}*/
+.left{ float: left; position: relative; width:208px; height:100%; overflow:hidden; }
+
+/*left样式*/
+
+
+
+.hyj_2_btn01{width:194px; height:100%; background:url(../images/listbg.png) repeat-y; margin-left:5px; padding-top:12px;}
+.hyj_2_btn01 li{ margin-bottom:12px;}
+.hyj_2_btn01 li a{color:#666666;}
+.hyj_2_btn01 li a:hover{color:#f3a321; text-decoration:underline;}
+
+.right{ background-color:#bdd3f0;  height:auto; overflow:hidden; padding-top:20px; padding-left:20px; padding-right:20px;}
+.bottom{ width:194px; height:6px; background:url(../images/bottombg.png) no-repeat; margin-left:5px;}
+.timg{ width:166px; height:25px; margin-left:15px; text-align:center; line-height:25px; background:url(../images/timg.png) no-repeat; color:#FFF; font-size:12px;}
+.center{ width:166px; height:100%; background:url(../images/centerbg.png) repeat-y; margin-left:15px; padding-top:12px;}
+.timg_bottom{ width:166px; height:4px; background:url(../images/timg_bootombg.png) no-repeat; margin-left:15px;}
+#timg_bottom{ margin-bottom:8px;}
+/*zhaomei 8-9 add*/
+
+.content_list{ width:100%; height:auto; overflow:hidden; background-color:#eeeeee; margin:0 auto;}
+.right_list{ background-color:#f2f9ff; width:100%;  height:auto; overflow-y:auto; overflow-x:hidden; padding:0px; float:left;}
+
+
+
+
+.hyj_4_inbtn01 {
+	width:177px;
+	height:53px;
+	line-height:53px;
+	font-size:14px;
+	color:#464a56!important;
+	display:block;
+	text-align:right;
+	padding-right:30px;
+	background: url(../images/navbg4.png) no-repeat left 2px;
+}
+.hyj_4_inbtn01 b{ position:relative; left:10px; width:45px; top:8px; float:left;}
+
+.hyj_4_inbtn012 {
+	width:177px;
+	height:53px;
+	line-height:53px;
+	font-size:14px;
+	color:#464a56!important;
+	display:block;
+	text-align:right;
+	padding-right:30px;
+	background: url(../images/navbg3.png) no-repeat left 2px;
+}
+
+.hyj_4_inbtn012 b{ position:relative; left:10px; width:45px; top:8px; float:left;}
+
+.hyj_4_inbtn012 a:hover{ color:#ffffff;}
+
+.hyj_4_inbtn011 {
+	width:146px;
+	height:49px;
+	line-height:49px;
+	padding-left:20px;
+	font-size:14px;
+	color:#00b3ff;
+}
+
+.frdmid{}
+.timebg{
+	width:194px;
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	color:#FFF;
+	background-image: url(../images/timebg.png);
+	background-repeat: no-repeat; margin-top:8px; margin-left:5px;
+}
+
+.ztnr{ padding:0px 10px;}
+.ztnr2{ padding:0px 10px 0px 10px; width:100%;}
+.ztnrtit{ line-height:36px; height:36px; border-bottom:2px solid #cccccc;}
+.dqbt{ width:300px; float:left; color:#41596d; font-weight:bold;}
+.dqbt b{ position:relative; top:5px; margin-right:10px;}
+.gnbtn{ float:right;}
+.gnbtn img{ position:relative; top:5px; margin-right:6px;}
+
+.gw_list{ padding-top:10px;}
+
+.list_gw{ padding:5px 0px; line-height:44px; -background: url(../images/borders.gif) repeat-y left;}
+.list_gw tr td{ border-bottom:1px solid #dddddd;}
+
+.list_bgcolor{ background-color:#f6f6f6;}
+
+
+.left_nr{ width:auto; height:auto; float:left;}
+.mid_nr{ width:auto; height:auto; float:left; padding:0px 10px;}
+.right_nr{ width:auto; height:auto; float:left;}
+
+
+.fhsy{ position: absolute; right:30px; z-index:9; top:80px;}

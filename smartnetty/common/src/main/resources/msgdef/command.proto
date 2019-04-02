@@ -1,0 +1,141 @@
+import "msgdef/sensor.proto";
+
+package protobuf;
+
+option java_package="com.harmazing.protobuf";
+option java_outer_classname="CommandProtos";
+
+
+
+message DsmTemperatureRange {
+	required int32 lowerTemperature = 1;
+	required int32 upperTemperature = 2;
+}
+
+message AirConditionerControl {
+    enum CommandType {
+        ON       = 0;
+        OFF      = 1;
+        MODE_SET = 2;
+        FAN_SET  = 3;
+        TEMP_SET = 4;
+        TIMER_SET = 5;
+    }
+    required string sensorid   = 1;
+    required CommandType type  = 2;
+    optional string string_parameter = 3;
+    optional uint32 int_parameters = 4;
+    repeated TimerCurv curves  = 5;
+}
+
+message GatewayControl {
+    enum CommandType {
+        GW_ZB_OPENNETWORK   = 1;
+        GW_ZB_ADDSENSOR     = 2;
+        GW_ZB_DELETENETWORK = 3;
+    }
+    required CommandType type = 1;
+    optional uint32 open_duration = 2;
+}
+
+message RcuUpdateCommand {
+	required int32 rcu_id 	    = 1;
+	required int32 frequency 	= 2;
+	required int32 duty_cycle_numerator	= 3;
+	required int32 duty_cycle_denominator	= 4;
+	repeated int32 number_of_pulses = 5;
+	repeated int32 length 		= 6;
+}
+
+message IrPacket {
+	optional int32 rcu_id 	    = 1;
+	repeated int32 length 		= 2;
+	required bytes main			= 3;
+}
+
+message IrControl {
+	enum CommandType {
+		IR_RCU_UPDATE	= 1;
+		IR_TX_CODE		= 2;
+	}
+    required string sensorid   = 1;
+	required CommandType type = 2;
+	optional RcuUpdateCommand rcuUpdateCommand = 3;
+	optional IrPacket irPacket = 4;
+}
+
+message OoControl {
+    required string sensorid    = 1;
+    required bool   on_off      = 2;
+}
+
+message OoElectricityMeterControl {
+    required string sensorid    = 1;
+    required bool   on_off      = 2;
+}
+
+message LightSwitchControl {
+    required string sensorid    = 1;
+    required bool   on_off      = 2;
+}
+
+message LampColor {
+    required int32 illuminance = 1;
+    required int32 red = 2;
+    required int32 green = 3;
+    required int32 blue = 4;
+}
+
+message HALampControl {
+    required string sensorid    = 1;
+    optional bool on_off        = 2;
+    optional LampColor color    = 3;
+}
+
+message Command {
+    optional AirConditionerControl 	    acControl = 1;
+	optional GatewayControl 		    gwControl = 2;
+	optional IrControl 				    irControl = 3;
+	optional OoControl 				    ooControl = 4;
+    optional OoElectricityMeterControl  ooemControl = 5;
+    optional LightSwitchControl         lsControl = 6;
+    optional HALampControl              lpControl = 7;
+}
+
+message CommandResponse {
+    required uint32         returnCode          = 1;
+    optional string         faultString         = 2;
+}
+
+message TimerInfo {
+    enum ACState {
+        ON    = 0;
+        OFF   = 1;
+    }
+
+    required uint64 start_time    = 1;
+    required ACState  state         = 2;
+    required int32   temperature    = 3;
+    required AirConditionerSendorSpecificInfo.AirConditionerOperatironMode operationMode = 4;
+    required AirConditionerSendorSpecificInfo.AirConditionerFanMode fanMode = 5;
+}
+
+message TimerCurv {
+    optional uint32 recurrentDate = 1;
+    repeated TimerInfo timer = 2;
+}
+
+message ServiceUpdate {
+    enum CommandType {
+        DEVICE_BINDING_CHG      = 0;
+	    LOG_INTERVAL_CHG        = 1;
+        LOG_REPORT_INTERVAL_CHG = 2;
+		FIRMWARE_AVAILABLE		= 3;
+		DSM_REQUEST 			= 4;
+    }
+
+    required CommandType type            = 1;
+    optional string description          = 2;
+    optional uint32 interval  = 3;
+	optional DsmTemperatureRange dsmTemperatureRange = 4;
+}

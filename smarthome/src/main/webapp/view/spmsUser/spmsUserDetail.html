@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden; overflow-y: auto;">
+<head>
+     <title>用户管理 - Powered By Clickmed</title>
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+     <meta http-equiv="Cache-Control" content="no-store"/>
+     <meta http-equiv="Pragma" content="no-cache"/>
+     <meta http-equiv="Expires" content="0"/>
+     <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9,IE=10"/>
+     <link
+             href="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.css"
+             type="text/css" rel="stylesheet"/>
+    <link href="/spms/static/css/component/jqueryui/themes/base/jquery-ui.css" type="text/css" rel="stylesheet"/>
+     <link rel="stylesheet"
+           href="../../static/css/component/jqueryui/themes/base/jquery.ui.all.css"/>
+     <link
+             href="/spms/resources/bootstrap/2.3.1/css_default/bootstrap.min.css"
+             type="text/css" rel="stylesheet"/>
+     <link href="/spms/resources/select2/select2.css" type="text/css"
+           rel="stylesheet"/>
+     <link href="/spms/resources/x-editable/css/bootstrap-editable.css"
+           type="text/css" rel="stylesheet"/>
+     <link href="/spms/resources/fancyBox/source/jquery.fancybox.css"
+           type="text/css" rel="stylesheet"/>
+     <link href="/spms/resources/common/platform.min.css" type="text/css"
+           rel="stylesheet"/>
+     <link href="/spms/static/other/css/table.css" rel="stylesheet"
+           type="text/css"/>
+     <link rel="shortcut icon" href="/spms/resources/favicon.ico">
+     <link href="/spms/resources/common/edit/edit_control.css"
+           rel="stylesheet" type="text/css"/>
+     <link href="/spms/resources/common/maskLayer/masklayer.css"
+           type="text/css" rel="stylesheet"/>
+     <link href="/spms/resources/common/edit/edit_control.css"
+           type="text/css" rel="stylesheet"/>
+</head>
+<body>
+
+<ol class="breadcrumb">
+    您的当期位置：
+    <li ><a>订户管理</a></li>
+    >>
+    <li><a >订户列表</a></li>
+    >>
+    <li><a >详细</a></li>
+</ol>
+
+<form id="userBasicInfo" class="form-horizontal form_znydxq">
+     <fieldset id="fieldset">
+          <legend>
+               账户基本信息 <span> <input class="edit_complete" name="edit_complete1"
+                                    style="display: none;" id="basicComplete" type="button"
+                                    onClick="doEdit()"> <input class="edit_cancel" name=""
+                                                               style="display: none" id="basicCancel" type="button"
+                                                               onClick="cancelContol(this,'basic')"> <input
+                  class="edit_ico" name="" type="button" id="basicEdit"
+                  onClick="editContolText(this,'basic')"> <a
+                  onClick="doDelete()"><input class="frozen_ico" name=""
+                                              id="basicDel" type="button"></a>
+				</span> <a class="togglebtn togglebtn-down" href="javascript:void(0)"
+                           onClick="togglebtnText(this)"></a>
+          </legend>
+
+          <input type="hidden" name="id" id="id"/>
+          <input type="hidden" name="status" id="status"/>
+          <input type="hidden" name="updateFlag" id="updateFlag" value="0"/>
+
+          <div class="control-group">
+               <label class="control-label">姓名:</label>
+
+               <div class="controls">
+                    <div class="input_view" id="fullnameS"></div>
+                    <input id="fullname" name="fullname" style="display: none;"
+                           class="required" type="text" value="wu" maxlength="200"/>
+               </div>
+          </div>
+          <div class="control-group">
+               <label class="control-label">用户类型:</label>
+
+               <div class="controls">
+                    <div class="input_view" id="typeS"></div>
+                    <select id="type" name="type" style="display:none;width: 220px"
+                            dictSrc="spmsuser_type" class="the_select2">
+                    </select>
+               </div>
+          </div>
+          <div class="control-group">
+               <label class="control-label">业务区域:</label>
+
+               <div class="controls">
+                    <div class="input_view" id="bizAreaNameS"></div>
+                    <input type="text" value="" maxlength="50" readonly="true" id="bizAreaName" class="required" style="display: none;"/>
+                    <input id="bizAreaId" name="bizAreaId" type="hidden" value=""/>
+                    <input id="bizAreaButton" class="btn btn-primary" type="button" value="选择" style="position: relative; display: none"/>
+
+               </div>
+          </div>
+          <div class="control-group">
+               <label class="control-label">用电区域:</label>
+
+               <div class="controls">
+                    <div class="input_view" id="eleAreaNameS"></div>
+                    <input type="text" value="" maxlength="50" readonly="true" id="eleAreaName" class="required" style="display: none;"/>
+                    <input id="eleAreaId" name="eleAreaId" type="hidden" value=""/>
+                    <input id="eleAreaButton" class="btn btn-primary" type="button"  value="选择" style="position: relative; display: none"/>
+
+               </div>
+          </div>
+          <div class="control-group">
+               <label class="control-label">住址:</label>
+
+               <div class="controls">
+                    <div class="input_view" id="addressS"></div>
+                    <input id="address" name="address" style="display: none;"
+                           class="required" type="text" maxlength="200"/>
+               </div>
+          </div>
+          <div class="control-group">
+               <label class="control-label">电话:</label>
+
+               <div class="controls">
+                    <div class="input_view" id="mobileS"></div>
+                    <input id="mobile" name="mobile" style="display: none;"
+                           class="required mobile" type="text" maxlength="200"/>
+               </div>
+          </div>
+          <div class="control-group">
+               <label class="control-label">邮箱:</label>
+
+               <div class="controls">
+                    <div class="input_view" id="emailS"></div>
+                    <input id="email" name="email" style="display: none;"
+                           class="email" type="text" maxlength="200"/>
+               </div>
+          </div>
+          <div class="control-group">
+               <label class="control-label">电表号:</label>
+
+               <div class="controls">
+                    <div class="input_view" id="ammeterS"></div>
+                    <input id="ammeter" name="ammeter" style="display: none;"
+                           class="" type="text" maxlength="200"/>
+               </div>
+          </div>
+          <div class="control-group">
+               <label class="control-label">身份证号:</label>
+
+               <div class="controls">
+                    <div class="input_view" id="idNumberS"></div>
+                    <input id="idNumber" name="idNumber" style="display: none;"
+                           class="card" type="text" maxlength="200"/>
+               </div>
+          </div>
+
+     </fieldset>
+</form>
+<form id="gatewayForm" class="form-horizontal  form_znydxq">
+     <fieldset>
+          <legend>
+               绑定网关 <span> <input class="edit_complete" name="test2"
+                                  style="display: none;" id="gatewayComplete" type="button"
+                                  onclick="bingGw(this)"> <input class="edit_cancel" name=""
+                                                                 style="display: none" id="gatewayCancel" type="button"
+                                                                 onclick="cancelContol(this,'gateway')"> <input
+                  class="edit_ico" name="" type="button" id="gatewayEdit"
+                  onclick="editContolText(this,'gateway')"> <!-- <input class="delete_ico" name="" id="gatewayDel" type="button"> -->
+				</span> <a class="togglebtn togglebtn-down" href="javascript:void(0)"
+                           onclick="togglebtnText(this)"></a>
+          </legend>
+
+
+          <input id="userId" name="userId" type="hidden"/>
+
+          <div class="control-group" >
+               <label class="control-label">网关MAC:</label>
+
+               <div class="controls">
+                    <div class="input_view link" id="macS"></div>
+                    <input id="mac" name="mac" style="display: none;" class="required" type="text" maxlength="200"/>
+               </div>
+          </div>
+     </fieldset>
+</form>
+
+<div id=newproduct style="background: #f5f5f5"></div>
+<div id="newServiceDeviceTable" style="display: none;width: 100%;margin-bottom: 20px">
+     <table class="table table-striped  table-condensed table_s">
+
+          <tr>
+               <td><select name="adddeviceType" id="adddeviceType" class="the_select2">
+                    <option value="2">智能空调</option>
+                    <option value="3">门窗传感器</option>
+               </select></td>
+               <td><input type="text" name="deviceMac"  placeholder="请输入mac地址"/><span
+                       name="errorInfo"></span></td>
+               <td><input id="addDevice" class="btn btn-primary"
+                          type="button" value="添加设备" onclick="bindingDevice(this)"/></td>
+          </tr>
+     </table>
+</div>
+<!-- 遍历所有已存在的服务 -->
+<div class="form-horizontal  form_znyd">
+     <fieldset>
+          <div id="addServiceDiv">
+               <form id="addProductForm" style="display: none;"
+                     class="form-horizontal  form_znydxq"
+                     method="post">
+                    <div >
+                         <div class="service_list_title">
+                              <h3>
+                                   <span>新增产品</span>
+                              </h3>
+							<span> <input
+                                    class="edit_complete" name=""
+                                    style="float: right; margin-right: 10px;"
+                                    id="productAddComplete" type="button" onclick="saveProduct(this);">
+							</span>
+                         </div>
+                         <input type="hidden" id="addproductId" name="addproductId"/>
+
+                         <div class="form-horizontal form-two form_znydxq">
+                              <div class="control-group">
+                                   <label class="control-label">产品类型:</label>
+
+                                   <div class="controls">
+                                        <select name="addproducttypeid" id="addproducttypeid" class="the_select2" style="width:180px;" onchange="changeProperties(this)">
+
+                                        </select>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">产品期限:</label>
+
+                                   <div class="controls">
+                                        <span id="addvalidPeriod"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">产品目录:</label>
+
+                                   <div class="controls">
+                                        <span id="addmuluId"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">服务配置:</label>
+
+                                   <div class="controls">
+                                        <span id="addconfigurationInformation"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">产品订阅时间:</label>
+
+                                   <div class="controls">
+                                        <input id="addsubscribeDate" name="addsubscribeDate" type="text" readonly="readonly" maxlength="20" class="Wdate required"
+                                               value="" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});"/>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">产品区域:</label>
+
+                                   <div class="controls">
+                                        <span id="addareaName"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">传感器联动:</label>
+
+                                   <div class="controls">
+                                        <span id="addlianDong"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">空调最大绑定数:</label>
+
+                                   <div class="controls">
+                                        <span id="addkongTiaoCount"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">传感器最大绑定数:</label>
+
+                                   <div class="controls">
+                                        <span id="addchuangGanCount"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">产品总费用:</label>
+
+                                   <div class="controls">
+                                        <span id="addcountRmb"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">制冷最低温度:</label>
+
+                                   <div class="controls">
+                                        <span id="addzhiLengMix"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">制冷最高温度:</label>
+
+                                   <div class="controls">
+                                        <span id="addzhiLengMax"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">制热最低温度:</label>
+
+                                   <div class="controls">
+                                        <span id="addzhiReMix"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">制热最高温度:</label>
+
+                                   <div class="controls">
+                                        <span id="addzhiReMax"></span>
+                                   </div>
+                              </div>
+                              <div class="control-group">
+                                   <label class="control-label">备注信息:</label>
+
+                                   <div class="controls">
+                                        <span id="adddescribes"></span>
+                                   </div>
+                              </div>
+                              <table id="addServiceDeviceTable"
+                                     class="table table-striped  table-condensed table_s">
+                                   <tr>
+                                        <th width="30.3%">设备类型</th>
+                                        <th width="30.3%">设备MAC</th>
+                                        <th align="left">
+                                        </th>
+                                   </tr>
+                                   <tr>
+                                        <td><select name="deviceType" class="the_select2">
+                                             <option value="2">智能空调</option>
+                                             <option value="3">门窗传感器</option>
+                                        </select></td>
+                                        <td><input type="text" name="deviceMac" placeholder="请输入mac地址"/><span
+                                                name="errorInfo"></span></td>
+                                        <td><input  class="btn btn-primary"
+                                                    type="button" value="添加设备" onclick="bindingDevice(this)"/></td>
+                                   </tr>
+                              </table>
+                         </div>
+                    </div>
+               </form>
+          </div>
+     </fieldset>
+</div>
+<div class="add_service">
+     <a href="javascript:void(0)" onclick="addProductForm(this)"><i
+             class="add_ico"></i>添加一个产品</a>
+</div>
+
+
+<!-- 账单列表 -->
+<legend style="height:41px;margin-top: 20px">
+	账务信息
+	<div id="collapseOne" style="height:0px">
+		<form id="searchForm" >
+			<!-- <div>账单日:<span>2月2日</span></div>
+			<div>未出账单:<span>300元</span></div> -->
+			<input id="spmsUserId" name="spmsUser.id" type="hidden" />
+        </form>
+	</div>
+
+	</legend>
+<div>
+    <div id="reportInfoQuery" class="clickmedCommonTable1"  queryId="accountBillQuery" conf="{showTitle:false,operatorArr:oppObj,showSelect:true,selectText:' ',selectType:'CHECKBOX',title:'账单列表',customBtn:true,createDelOpp:false,autoLoad:false,selectText:' ',rowClick:rowClick,createBtn:false,deleteBtn:false}" searchDiv="collapseOne" operatorArr="oppObj">
+    </div>
+</div>
+
+
+<div class="form-actions">
+     <input id="btnCancel" class="btn btn-primary" type="button"
+            value="返 回" onclick="history.go(-1)"/>
+</div>
+<script type="text/javascript"
+        src="/spms/resources/common/edit/edit_control.js">
+	<script src="/spms/resources/jquery/jquery-1.9.1.min.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/jquery/jquery-migrate-1.1.1.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/spms/resources/jquery-validation/1.11.1/jquery.validate.method.min.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/bootstrap/2.3.1/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<!--[if lte IE 6]>
+<link href="/spms/resources/bootstrap/bsie/css/bootstrap-ie6.min.css" type="text/css" rel="stylesheet"/>
+<script src="/spms/resources/bootstrap/bsie/js/bootstrap-ie.min.js" type="text/javascript"></script><![endif]-->
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+<script src="/spms/resources/common/html5.js"></script><![endif]-->
+	<script type='text/javascript'
+		src="/spms/static/other/scripts/js/jquery.min.js"></script>
+	<script src="/spms/resources/jquery/jquery-migrate-1.1.1.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/spms/resources/jquery-validation/1.11.1/jquery.validate.method.min.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/bootstrap/2.3.1/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<!--[if lte IE 6]><link href="/spms/resources/bootstrap/bsie/css/bootstrap-ie6.min.css" type="text/css" rel="stylesheet" />
+	<script src="/spms/resources/bootstrap/bsie/js/bootstrap-ie.min.js" type="text/javascript"></script><![endif]-->
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]> <script src="/spms/resources/common/html5.js"></script><![endif]-->
+	<script src="/spms/resources/My97DatePicker/WdatePicker.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/common/mustache.min.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/list/list.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/select2/select2.js" type="text/javascript"></script>
+	<script src="/spms/resources/select2/select2_locale_zh-CN.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/x-editable/js/bootstrap-editable.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/fancyBox/source/jquery.fancybox.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/common/platform.min.js"
+		type="text/javascript"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.core.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.datepicker.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect-blind.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.widget.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.progressbar.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.mouse.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.button.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.draggable.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.position.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.resizable.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.dialog.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/common/common.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/css/component/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/common/common-dialog.js"></script>
+	<script type="text/javascript"
+		src="/spms/resources/common/maskLayer/maskLayer.js">
+		
+	</script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/common/common-table.js">
+	</script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/dialog/dialog.js">
+	</script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/spmsUser/spmsUserList.js"></script>
+		
+	</script>
+<script type="text/javascript"
+        src="/spms/static/javascript/spmsUser/spmsUserDetail.js">
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+package protobuf;
+
+option java_package="com.harmazing.protobuf";
+option java_outer_classname="EventProtos";
+
+import "msgdef/command.proto";
+
+message Event {
+    enum EventType {
+       SENSOR_JOIN             = 0;
+        SENSOR_LEAVE            = 1;
+        SENSOR_PAIR             = 2;
+        SENSOR_UNPAIR           = 3;
+        SENSOR_PAIR_REQUEST     = 4;
+        SENSOR_BATTERY_LOW      = 5;
+        SENSOR_AC_ON            = 6;
+        SENSOR_AC_OFF           = 7;
+        SENSOR_AC_MODE_CHANGED  = 8; // op mode
+        SENSOR_AC_WIND_CHANGED  = 9; // fan mode
+        SENSOR_AC_LOCAL_TEMP_CHANGED  = 10; // local temperature
+        SENSOR_AC_TARGET_TEMP_CHANGED  = 11; // target temperature
+        SENSOR_OPEN             = 12;
+        SENSOR_CLOSE            = 13;
+        SENSOR_AC_EXCEPTION     = 14;
+        IR_CODE_RECEIVED        = 15;
+        SENSOR_OO_ON            = 16;
+        SENSOR_OO_OFF           = 17;
+        SENSOR_TEMPERATURE      = 18;
+        SENSOR_HUMIDITY         = 19;
+        SENSOR_LAMP_COLOR       = 20;
+        SENSOR_ALARMED          = 21;
+        SENSOR_NOT_ALARMED      = 22;
+    }
+    required string source  = 1; // source of event
+    required EventType type = 2;
+    optional string string_parameter = 3;
+    optional uint32 int_parameter = 4;
+	optional bytes ac_exception  = 5;
+	optional IrPacket ir_packet = 6;
+    optional LampColor color = 7;
+}
+
+message EventReport {
+    repeated Event events = 1;
+}
+

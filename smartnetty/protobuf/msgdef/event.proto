@@ -1,0 +1,30 @@
+package IDL;
+option java_package = "com.harmazing.protobuf";
+option java_outer_classname = "EventProtos";
+message Event {
+    enum EventType {
+        SENSOR_JOIN             = 0;
+        SENSOR_LEAVE            = 1;
+        SENSOR_PAIR             = 2;
+        SENSOR_UNPAIR           = 3;
+        SENSOR_PAIR_REQUEST     = 4;
+        SENSOR_LOW_BATERY       = 5;
+        SENSOR_AC_ON            = 6;
+        SENSOR_AC_OFF           = 7;
+        SENSOR_AC_MODE_CHANGED  = 8; // op mode
+        SENSOR_AC_WIND_CHANGED  = 9; // fan mode
+        SENSOR_AC_LOCAL_TEMP_CHANGED  = 10; // local temperature
+        SENSOR_AC_TARGET_TEMP_CHANGED  = 11; // target temperature
+        SENSOR_WINDOOR_OPEN     = 12;
+        SENSOR_WINDOOR_CLOSE    = 13;
+    }
+    required string source  = 1; // source of event
+    required EventType type = 2;
+    optional string string_parameter = 3;
+    optional uint32 int_parameter = 4;
+}
+
+message EventReport {
+    repeated Event events = 1;
+}
+

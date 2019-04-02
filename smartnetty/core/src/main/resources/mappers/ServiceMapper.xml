@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harmazing.mapper.ServiceMapper">
+    <resultMap id="ServiceResultMap" type="java.util.HashMap">
+        <result property="id" column="id" javaType="java.lang.String" />
+        <result property="serviceId" column="service_id" javaType="java.lang.Integer" />
+        <result property="serviceName" column="rule_name" javaType="java.lang.String" />
+        <result property="airconMode" column="mode" javaType="java.lang.Integer" />
+        <result property="coolerStart" column="cooler_start" javaType="java.lang.Integer" />
+        <result property="coolerEnd" column="cooler_end" javaType="java.lang.Integer" />
+        <result property="heaterStart" column="heater_start" javaType="java.lang.Integer" />
+        <result property="heaterEnd" column="heater_end" javaType="java.lang.Integer" />
+        <result property="winDoorSensorEnabled" column="sensor_enabled" javaType="java.lang.Integer" />
+    </resultMap>
+</mapper>

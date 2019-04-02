@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="rolePermissionsQuery" baseClass="com.harmazing.spms.base.entity.RoleEntity" orderBy="version#desc" useEntity="true">
+		<column key ="roleName" display="true" header="角色名" allowSearch='true' operator='LIKE'/>
+		<column key ="roleCode" display="true" header="角色编码" allowSearch='true' operator='LIKE'/>
+	</query>
+</querys>

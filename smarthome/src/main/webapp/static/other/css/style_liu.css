@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+/*tab*/
+.tab1{ height:31px; float:left; }
+.tab1 ul li{ float:left; border-right:1px solid #e4e4e4; text-align:center;}
+.tab1 ul li a.w01{ width:84px; height:31px; font-size:14px; display:block; line-height:30px;}
+.li_sel{ background:url(../image/jt_select.png) no-repeat right top;}
+.tab1 ul li.current{ background:#1c2f4b; color:#fff;}
+.tab1 ul li.current a{color:#fff !important;}
+.tab1_content{ background-color:#fff;}
+.tab1_content ul{ overflow:hidden;}
+.tab1_content ul li{display:block;}
+
+.tab2{ height:31px; float:left; }
+.tab2 ul li{ float:left; border-right:1px solid #e4e4e4; text-align:center;}
+.tab2 ul li a.w02{ width:140px; height:31px; font-size:14px; display:block; line-height:30px;}
+.li_sel{ background:url(../image/jt_select.png) no-repeat right top;}
+.tab2 ul li.current{ background:#1c2f4b; color:#fff;}
+.tab2 ul li.current a{color:#fff !important;}
+.tab2_content{ background-color:#fff;}
+.tab2_content ul{ overflow:hidden;}
+.tab2_content ul li{display:block;}
+
+
+.fade_button_L{width:60px; text-align:center; font-size:12px; background-color:#fff; color:#000; border:1px solid #394862; display:inline-block;  height:22px; line-height:22px; cursor:pointer; margin-left:10px;}
+

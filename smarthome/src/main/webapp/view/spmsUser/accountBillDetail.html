@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html style="overflow-x: hidden; overflow-y: auto;">
+<head>
+<title>订户管理 - Powered By Clickmed</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="X-UA-Compatible" content="IE=7,IE=9,IE=10" />
+<link
+	href="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.css"
+	type="text/css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="../../static/css/component/jqueryui/themes/base/jquery.ui.all.css" />
+<link
+	href="/spms/resources/bootstrap/2.3.1/css_default/bootstrap.min.css"
+	type="text/css" rel="stylesheet" />
+<link href="/spms/resources/select2/select2.css" type="text/css"
+	rel="stylesheet" />
+<link href="/spms/resources/x-editable/css/bootstrap-editable.css"
+	type="text/css" rel="stylesheet" />
+<link href="/spms/resources/fancyBox/source/jquery.fancybox.css"
+	type="text/css" rel="stylesheet" />
+<link href="/spms/resources/common/platform.min.css" type="text/css"
+	rel="stylesheet" />
+<link href="/spms/static/other/css/table.css" rel="stylesheet"
+	type="text/css" />
+<link rel="shortcut icon" href="/spms/resources/favicon.ico">
+<link href="/spms/resources/common/edit/edit_control.css"
+	rel="stylesheet" type="text/css" />
+<link href="/spms/resources/common/maskLayer/masklayer.css"
+	type="text/css" rel="stylesheet" />
+    <style>
+    </style>
+</head>
+<body>
+<ol class="breadcrumb">
+    您的当期位置：
+    <li ><a>订户管理</a></li>
+    >>
+    <li><a >订户列表</a></li>
+    >>
+    <li><a >订户详情</a></li>
+    >>
+    <li><a >账单</a></li>
+</ol>
+<!--begin-->
+	<form id="userBasicInfo" class="form-horizontal form_znydxq">
+		<fieldset id="fieldset">
+			<legend>账单基本信息 <span> </span> 
+			</legend>
+			<input type="hidden" name="id" id="id" /> <input type="hidden"
+				name="updateFlag" id="updateFlag" value="0" />
+
+			<div class="control-group">
+				<label class="control-label" style="width:230px">姓名:</label>
+				<div class="controls">
+					<div id="name" class="input_view"></div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" style="width:230px">手机号:</label>
+				<div class="controls">
+					<div id="mobile" class="input_view"></div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" style="width:230px">出账日：</label>
+				<div>
+					<div id="billDate" class="input_view"></div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" style="width:230px">账单周期：</label>
+				<div>
+					<div id="billCycle" class="input_view"></div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" style="width:230px">费用合计：</label>
+				<div>
+					<div id="countMonthRMB" class="input_view"></div>
+				</div>				
+			</div>
+			<div class="control-group">
+				<label class="control-label" style="width:230px">打印日期：</label>
+				<div>
+					<div id="printDate" class="input_view"></div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<!-- 套餐费用 -->
+	<fieldset> 
+		<form class="form-horizontal form_znydxq">
+			<legend>当月到期套餐 </legend>
+			<div id = "productFee" >
+				
+			</div>
+			<br/>
+		</form>
+	</fieldset>
+	<fieldset>
+		<form class="form-horizontal form_znydxq" style="font-family: 微软雅黑;color: #112">
+			<legend>账户信息</legend>
+			<div class="control-group">
+				<label class="control-label" style="width:230px">账户余额：</label>
+				<div class="controls">
+					<div id="accountMonthRest" class="input_view"></div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" style="width:230px">应缴费用：</label>
+				<div class="controls">
+					<div id="payFee" class="input_view"></div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" style="width:230px">信用：</label>
+				<div class="controls">
+					<div id="monthCredit" class="input_view"></div>
+				</div>
+			</div>
+		</form>
+	</fieldset>
+	<fieldset>
+		<form class="form-horizontal form_znydxq" style="font-family: 微软雅黑;color: #112">
+			<legend>用电信息</legend>
+			<div id="highChart1"  style="width: 80%; height:500px; padding: 0%; margin-left: 10%;">
+			</div>
+			<div id="highChart2"  style="width: 80%; height:500px; padding: 0%; margin-left: 10%;">
+			</div>
+		</form>
+	</fieldset>
+	<!--end-->
+			<div style="clear:both; float:none;text-align: right;padding-right:10%">
+				<input id="btnSubmit1" class="btn btn-primary"value="打印" style="margin: 10px 15px 5px 58px;width:50px" onclick="printBill();" />
+				<input id="btnSubmit2" class="btn btn-primary"value="再次发送" style="margin: 10px 15px 5px 58px;width:50px" onclick="sendEmail();" />
+				<input id="btnSubmit3" class="btn btn-primary"value="返回" style="margin: 10px 15px 5px 58px;width:50px" onclick="back();" />
+			</div>
+	<script type='text/javascript'
+		src="/spms/static/other/scripts/js/jquery.min.js"></script>
+	<script src="/spms/resources/jquery/jquery-migrate-1.1.1.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/spms/resources/jquery-validation/1.11.1/jquery.validate.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/spms/resources/jquery-validation/1.11.1/jquery.validate.method.min.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/bootstrap/2.3.1/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<!--[if lte IE 6]><link href="/spms/resources/bootstrap/bsie/css/bootstrap-ie6.min.css" type="text/css" rel="stylesheet" />
+	<script src="/spms/resources/bootstrap/bsie/js/bootstrap-ie.min.js" type="text/javascript"></script><![endif]-->
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]> <script src="/spms/resources/common/html5.js"></script><![endif]-->
+	<script src="/spms/resources/My97DatePicker/WdatePicker.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/common/mustache.min.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/list/list.min.js" type="text/javascript"></script>
+	<script src="/spms/resources/select2/select2.js" type="text/javascript"></script>
+	<script src="/spms/resources/select2/select2_locale_zh-CN.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/x-editable/js/bootstrap-editable.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/fancyBox/source/jquery.fancybox.js"
+		type="text/javascript"></script>
+	<script src="/spms/resources/common/platform.min.js"
+		type="text/javascript"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.core.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.datepicker.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect-blind.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.widget.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.progressbar.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.mouse.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.button.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.draggable.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.position.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.resizable.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/jquery/ui/jquery.ui.dialog.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/common/common.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/css/component/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/common/common-dialog.js"></script>
+	<script type="text/javascript"
+		src="/spms/resources/common/maskLayer/maskLayer.js">
+		
+	</script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/common/common-table.js">
+	</script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/dialog/dialog.js">
+	</script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/spmsUser/accountBillDetail.js">
+	</script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/spmsUser/accountBillDetailChart.js">
+	</script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/highchart/highcharts.js">
+	</script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/highchart/exporting.js">
+	</script>
+	<script type="text/javascript"
+		src="/spms/static/javascript/component/highchart/excanvas.compiled.js">
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+ <script type='text/javascript' src="/spms/static/other/scripts/js/jquery.min.js"></script>
+<script>
+	
+	function addPlugin(){
+		 var mac=$("#mac").val();
+		 var sn=$("#sn").val();
+		 var param={
+			  	mac:mac,
+			  	sn:sn
+			  }
+		  $.ajax({
+		  	  type:"POST",
+			  url: "/spms/plugin/addP",
+              dataType: 'json',
+			  data:JSON.stringify(param),
+	          contentType: "application/json",
+			  success:function(data){
+			  	alert(data);
+			  },
+			  error:function(data){
+			  	alert("error"+data)
+			  }
+		});
+	}
+</script>
+<body>
+	<button width="100" height="50" text="add plugin" onclick="addPlugin()"/>
+	<input y="100" id="mac" value="aaa"/>
+	<input y="100" id="sn" value="bbb"/>
+</body>
+</html>
+

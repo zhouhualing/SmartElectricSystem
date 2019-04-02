@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../../static/other/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="../../static/other/css/layout_zd.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../static/other/css/Untitled-2.css" rel="stylesheet" type="text/css"/>
+    <link href="../../static/other/css/znyd.css" rel="stylesheet" type="text/css"/>
+    <link href="/spms/resources/common/maskLayer/masklayer.css" type="text/css" rel="stylesheet" />
+    <style>
+        .charSort {
+            text-align: center;
+            float: left;
+            border-top-left-radius: 1px!important;
+            border-top-right-radius: 1px!important;
+            background: #fff;
+        }
+    </style>
+    <script src="../../static/other/scripts/js/jquery.min.js"></script>
+    <script src="../../static/other/scripts/js/highstock.js"></script>
+
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect-blind.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.progressbar.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.mouse.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.button.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.draggable.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.position.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.resizable.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/jquery/ui/jquery.ui.dialog.js"></script>
+    <script type="text/javascript" src="/spms/static/javascript/component/common/common.js"></script>
+    <script src="../../static/other/scripts/js/jquery.sortable.js"></script>
+    <script src="../../static/javascript/portal/index.js"></script>
+    <script>
+        $(function () {
+            var ids = ["userCountByArea", "userCountByRule", "userCountByOnlineStatus",
+                'deviceByModel', "deviceByOptStatus", 'userIncrementByDate','userCountByProductRemaining','SoftwareVersionStatistical'];
+          var userCountByAreaData = [{"东城区":303},{"丰台区":313},{"房山区":302},{"朝阳区":312},{"测试地区":1},{"海淀区":317},{"石景山区":402},{"西城区":301},{"门头沟区":299}];
+            var userCountByRuleData = [{"智能空调全年型套餐A102":1504},{"智能空调全年型套餐A104":1035},{"测试服务A100":6},{"测试服务B":8},{"测试服务（传感器）3":9},{"测试测试":0},{"阿姨帮":8}];
+            var userCountByOnlineStatusData = [{"离线":2521},{"在线":1},{"异常":0}];
+            var userIncrementByDateData = [{"date":1402243200000,"uncount":0,"count":38},{"date":1402329600000,"uncount":0,"count":31},{"date":1402416000000,"uncount":0,"count":32},{"date":1402502400000,"uncount":0,"count":31},{"date":1402588800000,"uncount":0,"count":31},{"date":1402675200000,"uncount":0,"count":60},{"date":1402761600000,"uncount":0,"count":55},{"date":1402848000000,"uncount":0,"count":25},{"date":1402934400000,"uncount":0,"count":24},{"date":1403020800000,"uncount":0,"count":25},{"date":1403107200000,"uncount":0,"count":24},{"date":1403193600000,"uncount":0,"count":24},{"date":1403280000000,"uncount":0,"count":48},{"date":1403366400000,"uncount":0,"count":49},{"date":1403452800000,"uncount":0,"count":23},{"date":1403539200000,"uncount":0,"count":25},{"date":1403625600000,"uncount":0,"count":24},{"date":1403712000000,"uncount":0,"count":25},{"date":1403798400000,"uncount":0,"count":17},{"date":1403884800000,"uncount":0,"count":10},{"date":1403971200000,"uncount":0,"count":14},{"date":1404057600000,"uncount":0,"count":8},{"date":1404144000000,"uncount":0,"count":28},{"date":1404230400000,"uncount":0,"count":17},{"date":1404316800000,"uncount":0,"count":20},{"date":1404403200000,"uncount":0,"count":15},{"date":1404489600000,"uncount":0,"count":23},{"date":1404576000000,"uncount":0,"count":31},{"date":1404662400000,"uncount":0,"count":17},{"date":1404748800000,"uncount":0,"count":13},{"date":1404835200000,"uncount":0,"count":16},{"date":1404921600000,"uncount":0,"count":45},{"date":1405008000000,"uncount":0,"count":19},{"date":1405094400000,"uncount":0,"count":17},{"date":1405180800000,"uncount":0,"count":25},{"date":1405267200000,"uncount":0,"count":15},{"date":1405353600000,"uncount":0,"count":17},{"date":1405440000000,"uncount":0,"count":9},{"date":1405526400000,"uncount":0,"count":15},{"date":1405612800000,"uncount":0,"count":17},{"date":1405699200000,"uncount":0,"count":20},{"date":1405785600000,"uncount":0,"count":25},{"date":1405872000000,"uncount":0,"count":25},{"date":1405958400000,"uncount":0,"count":20},{"date":1406044800000,"uncount":0,"count":26},{"date":1406131200000,"uncount":0,"count":25},{"date":1406217600000,"uncount":0,"count":22},{"date":1406304000000,"uncount":0,"count":24},{"date":1406390400000,"uncount":0,"count":16},{"date":1406476800000,"uncount":0,"count":10},{"date":1406563200000,"uncount":0,"count":15},{"date":1406649600000,"uncount":0,"count":24},{"date":1406822400000,"uncount":0,"count":38},{"date":1406908800000,"uncount":0,"count":46},{"date":1406995200000,"uncount":0,"count":46},{"date":1407081600000,"uncount":0,"count":17},{"date":1407168000000,"uncount":0,"count":14},{"date":1407254400000,"uncount":0,"count":18},{"date":1407340800000,"uncount":0,"count":14},{"date":1407427200000,"uncount":0,"count":22},{"date":1407513600000,"uncount":0,"count":9},{"date":1407600000000,"uncount":0,"count":19},{"date":1407686400000,"uncount":0,"count":27},{"date":1407772800000,"uncount":0,"count":26},{"date":1407859200000,"uncount":0,"count":12},{"date":1407945600000,"uncount":0,"count":20},{"date":1408032000000,"uncount":0,"count":24},{"date":1408118400000,"uncount":0,"count":16},{"date":1408204800000,"uncount":0,"count":10},{"date":1408291200000,"uncount":0,"count":20},{"date":1408377600000,"uncount":0,"count":10},{"date":1408464000000,"uncount":0,"count":18},{"date":1408550400000,"uncount":0,"count":26},{"date":1408636800000,"uncount":0,"count":25},{"date":1408723200000,"uncount":0,"count":14},{"date":1408809600000,"uncount":0,"count":11},{"date":1408896000000,"uncount":0,"count":27},{"date":1408982400000,"uncount":0,"count":25},{"date":1409068800000,"uncount":0,"count":21},{"date":1409155200000,"uncount":0,"count":16},{"date":1409241600000,"uncount":0,"count":8},{"date":1409328000000,"uncount":0,"count":6},{"date":1409414400000,"uncount":0,"count":7},{"date":1409500800000,"uncount":0,"count":23},{"date":1409587200000,"uncount":0,"count":16},{"date":1409673600000,"uncount":0,"count":17},{"date":1409760000000,"uncount":0,"count":13},{"date":1409846400000,"uncount":0,"count":17},{"date":1409932800000,"uncount":0,"count":31},{"date":1410019200000,"uncount":0,"count":31},{"date":1410105600000,"uncount":0,"count":14},{"date":1410192000000,"uncount":0,"count":19},{"date":1410278400000,"uncount":0,"count":15},{"date":1410364800000,"uncount":0,"count":18},{"date":1410451200000,"uncount":0,"count":13},{"date":1410537600000,"uncount":0,"count":30},{"date":1410624000000,"uncount":0,"count":25},{"date":1410796800000,"uncount":0,"count":19},{"date":1410883200000,"uncount":0,"count":23},{"date":1411056000000,"uncount":0,"count":25},{"date":1411142400000,"uncount":0,"count":25},{"date":1411228800000,"uncount":0,"count":25},{"date":1411315200000,"uncount":0,"count":25},{"date":1411401600000,"uncount":0,"count":25},{"date":1411488000000,"uncount":0,"count":25},{"date":1411574400000,"uncount":0,"count":24},{"date":1411660800000,"uncount":0,"count":24},{"date":1411747200000,"uncount":0,"count":25},{"date":1411833600000,"uncount":0,"count":24},{"date":1411920000000,"uncount":0,"count":54},{"date":1413820800000,"uncount":0,"count":4},{"date":1413993600000,"uncount":0,"count":1},{"date":1414166400000,"uncount":0,"count":1},{"date":1414339200000,"uncount":0,"count":1},{"date":1414512000000,"uncount":0,"count":2},{"date":1415116800000,"uncount":0,"count":1},{"date":1415548800000,"uncount":0,"count":8},{"date":1415635200000,"uncount":0,"count":1},{"date":1415721600000,"uncount":0,"count":4},{"date":1415808000000,"uncount":0,"count":2},{"date":1415894400000,"uncount":0,"count":1},{"date":1416153600000,"uncount":0,"count":1},{"date":1416240000000,"uncount":0,"count":2},{"date":1416326400000,"uncount":0,"count":15},{"date":1418140800000,"uncount":0,"count":1}];
+            var deviceByModelData = [{"type":"网关","value":7483},{"type":"空调","value":7415},{"type":"门传感","value":4967},{"type":"窗传感","value":4994}];
+            var deviceByOptStatusData = [{"repair":0,"scrap":1,"operate":2526,"name":"网关","stock":7483},{"repair":0,"scrap":3,"operate":2595,"name":"空调","stock":7415},{"repair":0,"scrap":0,"operate":39,"name":"门传感","stock":4967},{"repair":0,"scrap":0,"operate":8,"name":"窗传感","stock":4994}];
+            var portalSort = {"1":"userCountByOnlineStatus","2":"deviceByModel","3":"userCountByRule","4":"userIncrementByDate","5":"userCountByArea","6":"deviceByOptStatus"};
+           
+            var SoftwareVersionStatisticalData;
+			var softwares = new Array();
+			var counts = new Array();
+           
+			var URL ="/main/index";
+            doJsonRequest(URL,null,function(dat){
+            	if(dat.result){
+            		dat =dat.data;
+            	//	console.log(dat);
+            		 userCountByAreaData =dat["userCountByArea"];
+            		 userCountByRuleData =dat["userCountByRule"];
+            		 userCountByOnlineStatusData =dat["userCountByOnlineStatus"];
+            	     userIncrementByDateData =dat["userIncrementByDate"];
+            		 deviceByModelData =dat["deviceByModel"];
+            		 deviceByOptStatusData =dat["deviceByOptStatus"];
+            		 SoftwareVersionStatisticalData =dat["SoftwareVersionStatistical"];
+                     var userCountByProductRemainingData =dat["userCountByProductRemaining"];
+                     
+                     if(	typeof(SoftwareVersionStatisticalData) != "undefined"	){
+                    	 softwares = SoftwareVersionStatisticalData[0]["software"];
+                    	 counts = SoftwareVersionStatisticalData[0]["count"];
+                     }
+                    var  URL ="/spmsPortalCustom/getSort";
+                    doJsonRequest(URL, null, function (dat) {
+                        if(dat.result){
+                            portalSort =dat.data;
+                        //    console.log(portalSort);
+                            init($(".main_box ul"), portalSort);
+                         ///   console.log("userCountByOnlineStatus", userCountByOnlineStatusData)
+                            userCountByArea($('#userCountByArea'), userCountByAreaData);
+                            userCountByRule($("#userCountByRule"), userCountByRuleData);
+                            userCountByOnlineStatus($('#userCountByOnlineStatus'), userCountByOnlineStatusData);
+                            deviceByModel($('#deviceByModel'), deviceByModelData);
+                            deviceByOptStatus($('#deviceByOptStatus'), deviceByOptStatusData);
+                            userIncrementByDate($('#userIncrementByDate'), userIncrementByDateData);
+                            userCountByProductRemaining($("#userCountByProductRemaining"),userCountByProductRemainingData)
+                            SoftwareVersionStatistical($("#SoftwareVersionStatistical"),softwares,counts)
+                            
+                            function notIn(module) {
+                                for (var index in idAndIndex) {
+                                    if (idAndIndex[index]["id"] == module) {
+                                        return false;
+                                    }
+                                }
+                                return true;
+                            }
+
+                            for (var k = 0; k < ids.length; k++) {
+                                if (notIn(ids[k])) {
+                                    console.log(ids[k]);
+                                    $("li[module=" + ids[k] + "]").hide();
+                                }
+                            }
+                           /*  $('.block_charts').sortable({ handle: '.widget-header', tolerance: 'intersect'}).bind('sortupdate', function () {
+                                move($(".block_charts li"));
+                            }); */
+                            $('.charSort').sortable({tolerance: 'intersect'}).bind('sortupdate', function () {
+                            	$('.charSort li').each(function(index){
+                            		var moduleA =$(this).attr("module");
+                            		if($(".block_charts li:eq("+index+")").attr("module")!=moduleA){
+                            			if(!index){
+                            				$(".block_charts li:eq(1)").before($(".block_charts li[module="+moduleA+"]"));
+                            			}else{
+                            				$(".block_charts li:eq("+index+")").after($(".block_charts li[module="+moduleA+"]"));
+                            			}
+                            		}
+                            	});
+                                move($(".block_charts li"));
+                            });
+                            $(".cha").each(function () {
+                                $(this).on("click", function () {
+                                    var deleteDiv = $(this).parent().parent();
+                                    deleteSelf(deleteDiv);
+                                });
+                            });
+                            $(".add").on("click", function () {
+                                addShow();
+                            });
+                            $(".sort").on("click", function () {
+
+                                charSort()
+                            });
+                        }
+                    },function(){
+                        $.alert("获取数据失败");
+                    })
+            	}
+            },{showWaiting:true});
+
+        });
+    </script>
+</head>
+<body>
+<div class="main_box" style="position:relative">
+    <div class="bread_nav f12" style="height:20px;font-size:14px;font-weight: bold;position:relative;">
+        <button class="sort" style="position:absolute;right: 100px">排序</button>
+        <button class="add" style="position:absolute;right: 20px">添加</button>
+    </div>
+    <ul class="block_charts one_charts pt5" style="z-index:2;position:relative">
+
+    </ul>
+</div>
+<div class="easyDialog_wrapper" style="display: none;width: 480px;margin-left: -240px">
+    <div class="easyDialog_content">
+        <h4 class="easyDialog_title">拖动列表排序</h4>
+        <ul class="charSort" style="width:474px;"></ul>
+    </div>
+</div>
+
+</body>
+</body>
+</html>

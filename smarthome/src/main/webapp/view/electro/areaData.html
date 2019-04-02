@@ -1,0 +1,827 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>用电管理</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<link href="../../static/other/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../static/other/css/layout_zd.css" rel="stylesheet" type="text/css"/>
+<link href="../../static/other/css/znyd.css" rel="stylesheet" type="text/css"/>
+
+<link href="/spms/resources/common/maskLayer/masklayer.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../../static/other/slider/easyui.css">
+<link rel="stylesheet" type="text/css" href="../../static/other/slider/icon.css">
+<link rel="stylesheet" type="text/css" href="../../static/other/slider/demo.css">
+<script src="../../static/other/scripts/js/jquery-2.1.1.js"></script>
+<script type='text/javascript' src="../../static/other/scripts/js/me.js"></script>
+<script type='text/javascript' src='../../static/other/scripts/js/example.js'></script>
+<script type="text/javascript" src="../../static/other/scripts/js/003.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.core.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.datepicker.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.effect-blind.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.progressbar.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.mouse.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.button.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.draggable.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.position.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.resizable.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/jquery/ui/jquery.ui.dialog.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/common/common.js"></script>
+<script type="text/javascript"
+        src="/spms/static/css/component/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/common/common-dialog.js"></script>
+<script type="text/javascript"
+        src="/spms/resources/common/maskLayer/maskLayer.js">
+
+</script>
+<script type="text/javascript"
+        src="/spms/static/javascript/component/common/common-table.js">
+
+</script>
+<script src="../../resources/spms/d3-3.4.1.min.js"></script>
+
+<script src="../../static/other/scripts/js/highstock.js"></script>
+<script src="../../static/other/scripts/js/chartstyle.js"></script>
+<script src="../../static/javascript/component/highchart/exporting.js"></script>
+<script src="../../static/other/scripts/js/hammer.2.0.3.min.js"></script>
+<script src="../../static/other/scripts/js/harmazing.chart.ControlBar.js"></script>
+<script src="../../static/other/scripts/js/d3-3.4.1.min.js"></script>
+<script src="../../static/other/scripts/js/harmazing.plugin.WindowPlugin.js"></script>
+<script src="../../static/other/scripts/js/progress.js"></script>
+
+<script src="../../static/javascript/electro/newAreaElectro.js"></script>
+
+<style>
+    body {
+        -moz-user-select: none; /*火狐*/
+        -webkit-user-select: none; /*webkit浏览器*/
+        -ms-user-select: none; /*IE10*/
+        -khtml-user-select: none; /*早期浏览器*/
+        user-select: none;
+    }
+
+    .first_tips button {
+        height: 30px;
+        padding: 5px;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 14px;
+        background: #8282c8;
+        border: 1px solid #8282d8;
+
+    }
+
+    .first_tips button:active {
+        color: #333;
+    }
+
+    .first_tips button:hover {
+        color: #333;
+    }
+
+    .policy {
+        min-height: 160px;
+        border: 3px solid rgba(0, 0, 0, 0);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        font-family: "Microsoft yahei", Arial;
+    }
+
+    .policy li {
+        width: 96%;
+        height: 30px;
+        font-size: 15px;
+        line-height: 30px;
+        margin: 10px 2%;
+        border-radius: 3px;;
+        float: left;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .reduce {
+        background: #cccc00;
+
+    }
+
+    .encrease {
+        background: #99d20f;
+
+    }
+
+    .policy li p {
+        width: 120px;
+        margin-left: 20px;
+        margin-right: 15px;
+        float: left;
+    }
+
+    .policy li p b {
+        margin: 0px 10px;
+        width: 40px;
+        color: rgba(0, 0, 0, 0);
+    }
+
+    .policy li div {
+        position: relative;
+        top: 9px;
+        text-align: center;
+        float: left;
+        display: inline;
+        cursor: pointer;
+        color: #111;
+        line-height: 15px;
+        width: 15px;
+        height: 15px;
+        border: none;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+
+    }
+
+    .policy li button:active {
+        border: none;
+    }
+    
+    .cBtn{
+    	font-size: 12px;
+    	font-family: "微软雅黑"!important;
+    	background-color: rgb(0, 51, 153);
+    	color:white;
+    	border-radius: 8px;
+    	-webkit-transform-origin: 0px 0px 0px;
+    	cursor: pointer;
+    	text-align: center;
+    	line-height: normal;
+    	-webkit-user-select: none;
+    	width: 62px;
+    	height: 22px;
+    }
+</style>
+
+<script type="text/javascript">
+var _ctx = "../../static/other";
+var ctx = "../../a";
+
+var refresh = null;
+var areaName = "";
+var href = location.href;
+href = href.split("=");
+var id = "11";
+if (href.length > 1) {
+    var id = href[1];
+    areaName = localStorage[id]
+} else {
+    areaName = "北京配电区"
+}
+var Data = {};
+
+var statusData = [
+    {"离线": 2521},
+    {"在线": 1},
+    {"异常": 0}
+];
+var eleLevelData = [
+    {"关机": 1},
+    {"低用电设备": 0},
+    {"高用电设备": 0}
+];
+var maxLoad = 0;
+var Time = 0;
+var startValue = 0;
+var policyDefoult = "";
+var deviceNum={};
+var rbtn = 2;
+var tempData;
+$(function () {
+    $(".area").html(areaName)
+    var URL = "/electro/data";
+    var self = {
+        areaId: id,
+        rbtn: rbtn
+    }
+    console.log(self);
+
+    doJsonRequest(URL, self, function (dat) {
+        if (dat.result) {
+            Data = dat.data;
+            powers = Data["powers"];
+            deviceNum =Data["deviceNum"];
+            reactivePowers = Data["reactivePowers"];
+            powerFactors = Data["powerFactors"];
+            apparentPowers = Data["apparentPowers"];
+            eps = Data["eps"];
+            reactiveEnergys = Data["reactiveEnergys"];
+            activeDemands = Data["activeDemands"];
+            reactiveDemands = Data["reactiveDemands"];
+            statusData = Data["statusData"];
+            eleLevelData = Data["eleLevelData"];
+            generateChartOne(powers, reactivePowers, powerFactors, apparentPowers,deviceNum);
+
+            generateUserStatus(statusData);
+            generateUserEleLevelStatus(eleLevelData);
+            //$("#switchChart").change(function () {
+            //    var type = $(this).val();
+            //   if (type == 1) {
+            //        generateChartOne(powers, reactivePowers, powerFactors, apparentPowers);
+            //    } else if (type == 2) {
+            //        generateChartTwo(eps, reactiveEnergys);
+            //    } else if (type == 3) {
+            //        generateChartThree(activeDemands, reactiveDemands);
+            //    }
+            //});
+            function start(value) {
+                startValue = value;
+            }
+
+            function end(value) {
+                if (startValue === value) {
+                    return;
+                }
+
+                var type = 0;
+                if (value > startValue) {
+                    type = 1;
+                }
+                var scale = value - startValue;
+                var URL = "/electro/adjustElectro";
+                var self = {
+                    areaId: id,
+                    type: type,
+                    scale: scale
+                }
+
+                if (window.confirm("您确定要更改调控策略么?")) {
+                    clearTimeout(refresh);
+                    doJsonRequest(URL, self, function (dat) {
+                        refresh = setTimeout("updateData()", 5000);
+                        if (dat.result) {
+
+                        }
+
+                    }, {
+                        showWaiting: true,
+                        handdingInfo: "用电策略调整中..",
+                        successInfo: "调整成功",
+                        failtureInfo: "调整失败"
+                    })
+
+                    startValue = value;
+                } else {
+                    console.log(startValue);
+                    // console.log(easyuiSlider.getValue());
+                    $(".easyui-slider").slider("setValue", startValue)
+                    //easyuiSlider.setValue(startValue);
+                }
+
+
+            }
+
+            easyuiSlider = $(".easyui-slider").slider({
+                onSlideStart: start,
+                onSlideEnd: end,
+                min: -5,
+                max: 5,
+                value: 0,
+                showTip: true,
+                step: 1,
+                mode: "v",
+                rule: ["-5", "-4", "-3", "-2", "-1", "&nbsp&nbsp0", "+1", "+2", "+3", "+4", "+5"],
+                tipFormatter: function (value) {
+                    return value > 0 ? "+" + value : value;
+                }
+            });
+
+
+            policyDefoult = $("#policy").val();
+            $("#policy").change(function () {
+                var URL = "/electro/adjustElectro";
+                var scale = $(this).val();
+                var self = {
+                    areaId: id,
+                    type: 1,
+                    scale: scale
+                }
+                if (window.confirm("您确定要更改调控策略么?")) {
+                    clearTimeout(refresh);
+                    doJsonRequest(URL, self, function (dat) {
+                        refresh = setTimeout("updateData()", 5000);
+                        if (dat.result) {
+                            policyDefoult = scale;
+                        } else {
+                            $("#policy").val(policyDefoult);
+                        }
+
+                    }, {
+                        showWaiting: true,
+                        handdingInfo: "用电策略调整中..",
+                        successInfo: "调整成功",
+                        failtureInfo: "调整失败"
+                    });
+                } else {
+                    $("#policy").val(policyDefoult);
+                }
+
+
+            })
+        }
+
+        refresh = setTimeout("updateData()", 5000);
+    }, {
+        showWaiting: true
+    });
+    /*  generateChartOne(powers,reactivePowers,powerFactors,apparentPowers);
+
+     generateUserStatus(statusData);
+     generateUserEleLevelStatus(eleLevelData); */
+    $("#switchChart").change(function () {
+        var type = $(this).val();
+        $("#rBtn1").css("background-color","rgb(0, 51, 153)");
+    	$("#rBtn2").css("background-color","rgb(0, 51, 153)");
+    	$("#rBtn3").css("background-color","rgb(0, 51, 153)");
+    	$("#rBtn4").css("background-color","rgb(0, 51, 153)");
+       	$("#switchRangeDiv").hide();
+        if (type == 1) {
+        	$("#switchRangeDiv").show();
+        	$("#rBtn1").hide();
+        	rbtn = 2;
+        	$("#rBtn2").css("background-color","orange");
+        	rUpdateData();
+        } else if (type == 2) {
+        	rbtn = 1;
+        	$("#switchRangeDiv").show();
+        	$("#rBtn1").show();
+        	$("#rBtn1").css("background-color","orange");
+        	rUpdateData();
+        } else if (type == 3) {
+        	rbtn = 2;
+            generateChartThree(activeDemands, reactiveDemands);
+        }
+    });
+    (function () {
+        var h4 = d3.select(".easyDialog_wrapper").select("h4").html(areaName.split("(")[0]);
+        $(".policy li").each(function () {
+            $(this).find(".reduce").on("click", function () {
+            	if(tempData[$(this).parent().attr("temp")]==0){
+            		$.toast("该范围没有设备不能调控", 1000);
+                    return;
+            	}
+                var nowNum = +($(this).parent().find(".num").html());
+                nowNum--;
+                if (Math.abs(nowNum) > 5) {
+                    $.toast("调控范围不能超过5", 1500);
+                    return;
+                }
+                $(this).parent().find(".num").html(nowNum);
+            });
+            $(this).find(".encrease").on("click", function () {
+            	if(tempData[$(this).parent().attr("temp")]==0){
+            		$.toast("该范围没有设备不能调控", 1000);
+                    return;
+            	}
+                var nowNum = +($(this).parent().find(".num").html());
+                nowNum++;
+                if (Math.abs(nowNum) > 5) {
+                    $.toast("调控范围不能超过5", 1500);
+                    return;
+                }
+                $(this).parent().find(".num").html(nowNum);
+            });
+        });
+        $(".ensure").on("click", function () {
+            var URL = "/electro/regulationElectroForArea";
+            var self = {
+                areaId: id
+            }
+            var i=0;
+            $(".policy li").each(function () {
+                var temp = $(this).attr("temp");
+                var nowNum = +($(this).find(".num").html());
+                if(nowNum==0){
+                	i++;
+                }
+                self[temp] = nowNum;
+            });
+            if(i==3){
+            	$.toast("没有调整用电策略",1500);
+            	 $(".shadow").remove();
+            	 $(".easyDialog_wrapper").fadeOut();
+            	return;
+            }
+            doJsonRequest(URL, self, function (dat) {
+                if (dat.result) {
+                    //   console.log(dat["data"]);
+
+                    var data = dat["data"]["regulationInfo"];
+                    var datsuccess = dat["data"];
+                    $(".shadow").remove();
+                    $.toast(dat["data"]["msg"]);
+                    $(".policy li").each(function () {
+                        var temp = $(this).attr("temp");
+                        $(this).find("p").find("b").html("[" + data[temp] + "]");
+                        $(this).find(".ajust").find("b").html(datsuccess[temp + "success"]);
+
+
+                    });
+                    $(".easyDialog_wrapper").fadeOut();
+                }
+            }, {
+                showWaiting: true
+            })
+
+        });
+        $(".cancel").on("click", function () {
+            $(".shadow").remove();
+            $(".easyDialog_wrapper").hide();
+        });
+    })()
+
+});
+function updateData() {
+    var dat = {
+        areaId: id,
+        //endTime: powers.length == 0 ? "0" : powers[powers.length - 1][0],
+    	rbtn:rbtn
+    }
+    console.log(Time++);
+    clearTimeout(refresh);
+    doJsonRequest("/electro/updateData", dat, function (data) {
+        refresh = setTimeout("updateData()", 5000);
+        if (data.result) {
+            if (data.data.newpowers.length != 0) {
+                console.log("刷新数据");
+             //   console.log(data.data);
+             	deviceNum =data.data.newdeviceNum
+                var chart = $('#aeraPowerContent').highcharts();
+                powers = data.data.newpowers;
+                reactivePowers = data.data.newreactivePowers;
+                powerFactors = data.data.newpowerFactors;
+                apparentPowers = data.data.newapparentPowers;
+                eps = data.data.neweps;
+                reactiveEnergys = data.data.newreactiveEnergys;
+                activeDemands = data.data.newactiveDemands;
+                reactiveDemands = data.data.newreactiveDemands;
+
+                statusData = data.data.statusData;
+                eleLevelData = data.data.eleLevelData;
+                maxLoad = data.data.maxLoad;
+/*              	var newdeviceNum =data.data.newdeviceNum
+                var chart = $('#aeraPowerContent').highcharts();
+                var newpowers = data.data.newpowers;
+                var newreactivePowers = data.data.newreactivePowers;
+                var newpowerFactors = data.data.newpowerFactors;
+                var newapparentPowers = data.data.newapparentPowers;
+                var neweps = data.data.neweps;
+                var newreactiveEnergys = data.data.newreactiveEnergys;
+                var newactiveDemands = data.data.newactiveDemands;
+                var newreactiveDemands = data.data.newreactiveDemands;
+
+                var statusData = data.data.statusData;
+                var eleLevelData = data.data.eleLevelData;
+                var maxLoad = data.data.maxLoad;
+
+                var lastDevice = deviceNum[deviceNum.length - 1];
+                var lastponit1 = powers[powers.length - 1];
+                var lastponit2 = reactivePowers[reactivePowers.length - 1];
+                var lastponit3 = powerFactors[powerFactors.length - 1];
+                var lastponit4 = apparentPowers[apparentPowers.length - 1];
+
+                var lastDevicetime = new Date(lastDevice[0]);
+                var lasttime1 = new Date(lastponit1[0]);
+                var lasttime2 = new Date(lastponit2[0]);
+                var lasttime3 = new Date(lastponit3[0]);
+                var lasttime4 = new Date(lastponit4[0]);
+
+                var newDevicetime = new Date(parseInt(newdeviceNum[0], 10));
+                var newtime1 = new Date(parseInt(newpowers[0], 10));
+                var newtime2 = new Date(parseInt(newreactivePowers[0], 10));
+                var newtime3 = new Date(parseInt(newpowerFactors[0], 10));
+                var newtime4 = new Date(parseInt(newapparentPowers[0], 10)); */
+
+               /*  if (lastDevicetime.getMinutes() == newDevicetime.getMinutes()) {
+                	deviceNum.pop();
+                	deviceNum = deviceNum.concat(newdeviceNum);
+                    //chart.series[0].setData(powers);
+                } else if (lasttime1 < newtime1) {
+                    deviceNum = deviceNum.concat(newdeviceNum);
+                    //chart.series[0].setData(powers);
+                } else {
+                    //powers = powers.concat(newpowers);
+                    //chart.series[0].setData(powers);
+                }
+
+                if (lasttime1.getMinutes() == newtime1.getMinutes()) {
+                    powers.pop();
+                    powers = powers.concat(newpowers);
+                    //chart.series[0].setData(powers);
+                } else if (lasttime1 < newtime1) {
+                    powers = powers.concat(newpowers);
+                    //chart.series[0].setData(powers);
+                } else {
+                    //powers = powers.concat(newpowers);
+                    //chart.series[0].setData(powers);
+                }
+
+                if (lasttime2.getMinutes() == newtime2.getMinutes()) {
+                    reactivePowers.pop();
+                    reactivePowers = reactivePowers.concat(newreactivePowers);
+                    //chart.series[1].setData(reactivePowers);
+                } else if (lasttime2 < newtime2) {
+                    reactivePowers = reactivePowers.concat(newreactivePowers);
+                    //chart.series[1].setData(reactivePowers);
+                } else {
+                    //reactivePowers = reactivePowers.concat(newreactivePowers);
+                    //chart.series[1].setData(reactivePowers);
+                }
+
+                if (lasttime3.getMinutes() == newtime3.getMinutes()) {
+                    powerFactors.pop();
+                    powerFactors = powerFactors.concat(newpowerFactors);
+                    //chart.series[2].setData(powerFactors);
+                } else if (lasttime3 < newtime3) {
+                    powerFactors = powerFactors.concat(newpowerFactors);
+                    //chart.series[2].setData(powerFactors);
+                } else {
+                    //powerFactors = powerFactors.concat(newpowerFactors);
+                    //chart.series[2].setData(powerFactors);
+                }
+
+                if (lasttime4.getMinutes() == newtime4.getMinutes()) {
+                    apparentPowers.pop();
+                    apparentPowers = apparentPowers.concat(newapparentPowers);
+                    //chart.series[3].setData(apparentPowers);
+                } else if (lasttime4 < newtime4) {
+                    apparentPowers = apparentPowers.concat(newapparentPowers);
+                    //chart.series[3].setData(apparentPowers);
+                } else {
+                    //apparentPowers = apparentPowers.concat(newapparentPowers);
+                    //chart.series[3].setData(apparentPowers);
+                }
+
+
+
+                var lastponit7 = activeDemands[activeDemands.length - 1];
+                var lastponit8 = reactiveDemands[reactiveDemands.length - 1];
+
+                var lasttime7 = new Date(lastponit7[0]);
+                var lasttime8 = new Date(lastponit8[0]);
+
+                var newtime7 = new Date(parseInt(newactiveDemands[0], 10));
+                var newtime8 = new Date(parseInt(newreactiveDemands[0], 10));
+
+                if (lasttime7.getMinutes() == newtime7.getMinutes()) {
+                    activeDemands.pop();
+                    activeDemands = activeDemands.concat(newactiveDemands);
+                    //chart.series[0].setData(activeDemands);
+                } else if (lasttime7 < newtime7) {
+                    activeDemands = activeDemands.concat(newactiveDemands);
+                    //chart.series[0].setData(activeDemands);
+                } else {
+                    //activeDemands = activeDemands.concat(newactiveDemands);
+                    //chart.series[0].setData(activeDemands);
+                }
+
+                if (lasttime8.getMinutes() == newtime8.getMinutes()) {
+                    reactiveDemands.pop();
+                    reactiveDemands = reactiveDemands.concat(newreactiveDemands);
+                    //chart.series[1].setData(reactiveDemands);
+                } else if (lasttime8 < newtime8) {
+                    reactiveDemands = reactiveDemands.concat(newreactiveDemands);
+                    //chart.series[1].setData(reactiveDemands);
+                } else {
+                    //reactiveDemands = reactiveDemands.concat(newreactiveDemands);
+                    //chart.series[1].setData(reactiveDemands);
+                }
+ */
+                if ($("#switchChart").val() == "1" && powers.length > 0 && !rbtnClick) {
+                    //generateChartOne(powers,reactivePowers,powerFactors,apparentPowers);
+                    /* chart.series[3].setData(apparentPowers);
+                    chart.series[0].setData(powers);
+                    chart.series[1].setData(reactivePowers);
+                    chart.series[2].setData(powerFactors); */
+                    
+                    chart.series[0].setData(apparentPowers);
+                    chart.series[1].setData(powers);
+                    chart.series[2].setData(reactivePowers);
+                    chart.series[3].setData(powerFactors);
+                    chart.series[4].setData(deviceNum);
+                }
+                if ($("#switchChart").val() == "2" && !rbtnClick) {
+                    //generateChartTwo(eps,reactiveEnergys);
+                    chart.series[0].setData(eps);
+                    chart.series[1].setData(reactiveEnergys);
+                    eps = eps;
+                    reactiveEnergys = reactiveEnergys;
+                	//generateChartTwo(neweps, newreactiveEnergys);
+                }
+                if ($("#switchChart").val() == "3" && activeDemands.length > 0 && !rbtnClick) {
+                    //generateChartThree(activeDemands,reactiveDemands);
+
+
+                    chart.series[0].setData(activeDemands);
+                    chart.series[1].setData(reactiveDemands);
+                }
+
+                generateUserStatus(statusData);
+                generateUserEleLevelStatus(eleLevelData);
+            }
+            //   setTimeout("updateData()", 5000);
+
+        } else {
+            console.log("出错了");
+        }
+    })
+}
+function policyInit() {
+    (function () {
+        var URL = "/electro/regulationInfo";
+        var self = {
+            areaId: id
+        }
+        doJsonRequest(URL, self, function (dat) {
+            if (dat.result) {
+            	tempData= dat["data"];
+                console.log(tempData);
+                $(".policy li").each(function () {
+                    var temp = $(this).attr("temp");
+                    $(this).find(".adjust").find("b").html("[" + tempData[temp] + "]");
+
+                });
+            }
+        })
+    })()
+}
+function adjustPolicy() {
+      policyInit();
+    $(".easyDialog_wrapper").show();
+    var shadow = $("<div></div>").addClass("shadow");
+    $(".policy li").each(function () {
+        $(this).find(".num").html(0);
+        });
+
+}
+</script>
+</head>
+
+<body>
+<!--------------------//main//-------------------->
+<div id="main_box" class="main_box">
+    <div class="first_tips">调整<span class="area">北京配电区</span>的用电策略：
+        <!--<select id="policy" name="policy">
+            <option value="1" selected>用电策略一</option>
+            <option value="2">用电策略二</option>
+            <option value="3">用电策略三</option>
+        </select>-->
+        <button onclick="adjustPolicy()">调整用电策略</button>
+    </div>
+    <div class="block_charts one_charts border_02 bgcolor_02">
+        <div class="chart_data tc" style="position:relative;">
+            <div id="switchRangeDiv" style=" position:absolute; left:160px; top:15px; z-index:99;">
+            	<input id="rBtn1" class="cBtn" style="display:none;" type="button" onclick="rBtnClick(this.id);" value="当前"/>
+            	<input id="rBtn2" class="cBtn" style="background-color:orange;" type="button" onclick="rBtnClick(this.id);" value="当天"/>
+            	<input id="rBtn3" class="cBtn" type="button" onclick="rBtnClick(this.id);" value="当月"/>
+            	<input id="rBtn4" class="cBtn" type="button" onclick="rBtnClick(this.id);" value="当年"/>
+            </div>
+            <div id="switchChartDiv" style="position:absolute; right:160px; top:15px; z-index:99;">
+            <select
+                    id="switchChart">
+                <option value="1">功率曲线</option>
+                <option value="2">电能图表</option>
+                <option value="3">需求图表</option>
+            </select></div>
+            <div id="aeraPowerContent" style="height: 400px;"></div>
+
+            <!-- <div class="controlBar" style="height:240px;width:40px;margin-top:62px;">
+                 <div style="position: relative; width: 40px; height: 240px;">
+                     <div style="position: absolute; top: 20px; height: 200px; width: 20px; left: 0px;">
+                         <input class="easyui-slider" style="height:240px" mode="v" max="5" min="-5" value="0">
+                     </div>
+                 </div>
+             </div>-->
+        </div>
+    </div>
+    <div class="block_charts one_charts pt5">
+        <div class="chart_data tc border_02 bgcolor_02 mt5 fl" style="width:49.5%;  margin-right:.5%;">
+            <div id="statusDataContent" style="height: 400px;"></div>
+        </div>
+        <div class="chart_data tc border_02 bgcolor_02 mt5 fl" style="width:49.5%; margin-right:0;">
+            <div id="areaElectroLevel" style="height: 400px;"></div>
+        </div>
+    </div>
+    <div class="easyDialog_wrapper" style="display: none;width: 480px;margin-left: -240px">
+        <div class="easyDialog_content">
+            <h4 class="easyDialog_title"></h4>
+            <ul class="policy">
+                <li temp="low">
+                    <p>15°C~21°C<b></b></p>
+
+                    <div class="reduce"> －</div>
+                    <div class="num"
+                         style="margin: 0px 5px;border: 1px solid rgba(0,0,0,.2) ;width: 40px;text-align: center;color: #000;background: #fff;border-radius:3px">
+                        0
+                    </div>
+                    <div class="encrease"> ＋</div>
+                    <div class="adjust" style="width: 200px">此温度区间有<b ajust="lowsuccess" style="margin: 0px 10px">0</b>台设备
+                    </div>
+                </li>
+                <li temp="medium">
+                    <p>22°C~28°C<b></b></p>
+
+                    <div class="reduce"> －</div>
+                    <div class="num"
+                         style="margin: 0px 5px;border: 1px solid rgba(0,0,0,.2) ;width: 40px;text-align: center;color: #000;background: #fff;border-radius:3px">
+                        0
+                    </div>
+                    <div class="encrease"> ＋</div>
+                    <div class="adjust" style="width: 200px">此温度区间有<b ajust="mediumsuccess"
+                                                                      style="margin: 0px 10px">0</b>台设备
+                    </div>
+                </li>
+                <li temp="high">
+                    <p>29°C~35°C<b></b></p>
+
+                    <div class="reduce"> －</div>
+                    <div class="num"
+                         style="margin: 0px 5px;border: 1px solid rgba(0,0,0,.2) ;width: 40px;text-align: center;color: #000;background: #fff;border-radius:3px">
+                        0
+                    </div>
+                    <div class="encrease"> ＋</div>
+                    <div class="adjust" style="width: 200px">此温度区间有<b ajust="highsuccess" style="margin: 0px 10px">0</b>台设备
+                    </div>
+
+                </li>
+            </ul>
+            <p style="text-align: center; width: 100%;">
+                <button class="ensure">确 定</button>
+                <button class="cancel">取 消</button>
+            </p>
+        </div>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript">
+    if (!Array.prototype.map)
+        Array.prototype.map = function (fn, scope) {
+            var result = [], ri = 0;
+            for (var i = 0, n = this.length; i < n; i++) {
+                if (i in this) {
+                    result[ri++] = fn.call(scope, this[i], i, this);
+                }
+            }
+            return result;
+        };
+    var getWindowSize = function () {
+        return ["Height", "Width"].map(function (name) {
+            return window["inner" + name] ||
+                    document.compatMode === "CSS1Compat" && document.documentElement[ "client" + name ] || document.body[ "client" + name ];
+        });
+    };
+    function wSize() {
+        var minHeight = 500, minWidth = 980;
+        var strs = getWindowSize().toString().split(",");
+        if (strs[1] < minWidth) {
+            $("#chart_data").css("width", minWidth - 10);
+            $("#aeraPowerContent").css("width", minWidth - 80);
+
+        } else {
+            $("#chart_data").css("width", strs[1] - 10);
+            $("#aeraPowerContent").css("width", strs[1] - 80);
+        }
+    }
+    function iframeBodyClick() {
+        $(window.document.body).find("iframe").each(function () {
+            $(this).bind('load.body', function () {
+// 					iframeBodyClick();
+                $(this).contents().find("body").click(function () {
+                    $(window.parent.document.body).click();
+                });
+            });
+        });
+    }
+    $(iframeBodyClick);
+    $(window).resize(function () {
+        wSize();
+    });
+    wSize();
+</script>
+<script type="text/javascript" src="../../static/other/slider/jquery.easyui.min.js"></script>
+</html>

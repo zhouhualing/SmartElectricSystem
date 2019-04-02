@@ -1,0 +1,117 @@
+-- 统计总数
+select count(*) from (
+select 1 from tb_senddoc_senddoc 
+union ALL
+select 1 from tb_receivedoc_receivedoc
+union ALL
+select 1 from tb_request_report 
+union ALL
+select 1 from tb_bureaus_letter 
+union ALL
+select 1 from tb_meet_contentlib
+UNION ALL
+select 1 from tb_meet_plan
+union ALL
+select 1 from tb_meet_tell
+union ALL
+select 1 from tb_meet_mark
+union ALL
+select 1 from  tb_dynawork_index
+union ALL
+select 1 from  tb_supervise_lc
+union ALL
+select 1 from  tb_supervise_sum_lc
+union ALL
+select 1 from  tb_gout_apply_lc
+union ALL
+select 1 from  tb_actionlist_actionlist
+union ALL
+select 1 from tb_notice_center_lc where businessType = '0002') c
+
+
+
+
+select orgName,count(*) from (
+select t3.orgName, t3.id from tb_senddoc_senddoc  t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from tb_receivedoc_receivedoc t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from tb_request_report  t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from tb_bureaus_letter  t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from tb_meet_contentlib t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+UNION ALL
+select t3.orgName, t3.id from tb_meet_plan t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from tb_meet_tell t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from tb_meet_mark t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from  tb_dynawork_index t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from  tb_supervise_lc t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from  tb_supervise_sum_lc t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from  tb_gout_apply_lc t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from  tb_actionlist_actionlist t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116
+union ALL
+select t3.orgName, t3.id from (select  createUser_id from tb_notice_center_lc where businessType = '0002')  t1
+join tb_user_user_lc t2
+on t1.createUser_id = t2.id
+join tb_org_org_lc t3
+on t3.id = t2.orgEntity_id where t3.id > 58 and t3.id !=116) c GROUP BY orgName ORDER BY count(*) desc

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="sysLogQuery" baseClass="com.harmazing.spms.log.entity.SpmsLog">
+		<column key ="userAgent" display="true" header="所在公司" width="10%"/>
+		<column key ="createBy.orgEntity.name" display="true" header="所在部门" width="10%"/>
+		<column key ="createBy.userCode" display="true" header="操作用户" allowSearch='true' width="15%" operator='LIKE'/>
+		<column key ="requestUri" display="true" header="URI" allowSearch='true' width="20%" maxlength="200" operator='LIKE'/>
+		<column key ="method" display="true" header="提交方式" width="10%" />
+		<column key ="remoteAddr" display="true" header="操作者ip" width="15%" />
+		<column key ="createDate" display="true" width="15%" type="java.util.Date" header="创建时间" allowSearch='true' dateFormat="yyyy-MM-dd" operator="BETWEEN"/>
+	</query>
+</querys>

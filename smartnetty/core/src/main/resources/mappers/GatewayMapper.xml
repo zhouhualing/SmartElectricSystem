@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harmazing.mapper.GatewayMapper">
+	<resultMap id="GwResultMap"  type="Gateway">
+		<result property="id"		column="id" />
+		<result property="type"		column="type" />
+		<result property="mac" 		column="mac" />
+		<result property="sn"		column="sn" />
+		<result property="hardwareVer" column="hardware" />
+		<result property="softwareVer" column="software" />
+		<result property="currentSoftwareVer" column="currentSoftwarever" />
+		<result property="disabled"	column="disable" />
+		<result property="status"	column="status" />
+		<result property="operStatus"  column="operStatus" />
+		<result property="onOff" column="OnOff" />
+		<result property="mode"	column="mode" />		
+	</resultMap>
+</mapper>

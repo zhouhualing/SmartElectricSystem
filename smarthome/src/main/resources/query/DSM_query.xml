@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="DSMQuery" baseClass="com.harmazing.spms.base.entity.DSMEntity" ><!-- orderBy="createDate#desc"> -->
+		<column key ="schemeCode"  header="方案标识" />
+		<column key ="schemeType"  header="方案类型" allowSearch='true' operator='LIKE'/>
+		<column key ="schemeName" header="方案名称"  allowSearch='true' operator='LIKE' type="java.lang.String"  />
+		<column key ="startDate"  header="开始执行时间" type="java.util.Date" />
+		<column key ="endDate" header="结束执行之间" type="java.util.Date" />
+		<column key ="planReduceTargetQ" header="降负荷目标" type="java.lang.Integer" />
+		<column key ="planReduceTargetP" header="降电量目标" type="java.lang.Integer" />
+		<column key ="releaseUser" header="负责人" allowSearch='true' operator='LIKE' type="java.lang.String" />
+		<column key ="contactPhone" header="联系电话" allowSearch='true' operator='LIKE' type="java.lang.String" />
+		<column key ="status" header="当前状态" allowSearch='true' operator='LIKE' type="java.lang.String" />
+	</query>
+	
+</querys>

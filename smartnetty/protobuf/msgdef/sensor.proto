@@ -1,0 +1,68 @@
+
+package IDL;
+option java_package = "com.harmazing.protobuf";
+option java_outer_classname = "SensorProtos";
+
+message SensorInfo {
+    required string EUID = 1;
+}
+
+message SensorInfoResponse {
+
+    required uint32 returnCode      = 1;
+    optional string faultString     = 2; 
+
+    repeated Sensor sensors         = 3;
+}
+
+message AirConditionerSendorSpecificInfo {
+    required int32 localTemperature                     = 1;
+    required int32 targetTemperature                    = 2;
+
+    enum AirConditionerOperatironMode {
+        AUTO        = 0;
+        FANONLY     = 1;
+        COOLING     = 2;
+        WARMING     = 3;
+        DEHUMIDITY  = 4;
+    }
+
+    required AirConditionerOperatironMode operationMode = 3;
+    enum AirConditionerFanMode {
+        SPEED_AUTO  = 0;
+        SPEED1      = 1;
+        SPEED2      = 2;
+        SPEED3      = 3;
+        SPEED4      = 4;
+        SPEED5      = 5;
+        SILENT      = 6;
+    }
+    required AirConditionerFanMode  fanMode             = 4;
+    required int32 instantCapacity                      = 5;
+    required uint64 accumulatedKwh                       = 6;
+}
+
+message WinDoorSensorSpecificInfo {
+    enum WinDoorState {
+        CLOSED = 0;
+        OPENED = 1;
+    }
+    required WinDoorState state = 1;
+}
+
+message Sensor {
+    required string EUID                    = 1;
+    enum SensorType {
+        UNKNOWN             = 0;
+        AIRCONDITIONER      = 1;
+        WINDOWDOORSENSOR    = 2;                        // windows or door
+    }
+    required SensorType Type                = 2;
+    required uint64  localTime       = 3;
+    optional string name = 4 [ default = "NA" ];
+    optional int32  hardwareVersion = 5;
+    optional int32  softwareVersion = 6;
+    optional int32  poweredOn       = 7; // 0:off 1:on
+    optional AirConditionerSendorSpecificInfo acSpecificInfo = 10001;
+    optional WinDoorSensorSpecificInfo        wdSpecificInfo = 10002;
+}

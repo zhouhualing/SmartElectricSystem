@@ -1,0 +1,19 @@
+
+package IDL;
+option java_package = "com.harmazing.protobuf";
+option java_outer_classname = "GatewayInfoProtos";
+import "msgdef/sensor.proto";
+
+message GatewayInfoResponse {
+
+    required uint32 returnCode          = 1;
+    optional string faultString         = 2; 
+    required string userId              = 3;
+    required uint32 softwareVersion     = 4;
+    optional string userAddress         = 5;
+    optional int32  zigbeeChannel       = 6;
+    optional int32  zigbeePanId         = 7;
+    optional string zigbeeKey           = 8;
+
+    repeated Sensor     sensors         = 9;
+}

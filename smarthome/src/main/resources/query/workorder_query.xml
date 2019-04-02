@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="workorderQuery" baseClass="com.harmazing.spms.workorder.entity.SpmsWorkOrder" orderBy="lastModifyDate#desc">
+		<column key ="workOrderCode" display="true" header="工单号" allowSearch='true' operator='LIKE'/>
+		<column key ="type" display="true" header="工单类型" type="java.lang.Long"  dict="workorder_type" allowSearch='true' />
+		<column key ="status" display="true" header="工单状态" type="java.lang.Long"  dict="workorder_status" allowSearch='true' />
+		<column key ="supervisor.userName" display="true" header="创建人"  allowSearch='true' operator='LIKE'/>
+		<column key ="creationdate" display="true" header="创建时间" type="java.util.Date"  allowSearch='true' operator='LIKE'/>
+		<column key ="owner.userName" display="true" header="当前处理人" allowSearch='true' operator='LIKE'/>
+		<column key ="duration" display="true" header="预期完成时间" type="java.util.Date" allowSearch='true' operator='LIKE'/>
+		<column key ="area.parentIds" display="false" type="java.lang.Long"  allowSearch='true' operator='LIKE'/>
+	</query>
+
+</querys>

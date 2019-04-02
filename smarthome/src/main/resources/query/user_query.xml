@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<querys>
+	<query queryId="userQuery" baseClass="com.harmazing.spms.base.entity.UserEntity" orderBy="createDate#desc">
+		<column key ="userCode"  header="登录名" allowSearch='true' operator='LIKE'/>
+		<column key ="userName"  header="姓名" allowSearch='true' operator='LIKE'/>
+		<column key ="mobilePhone" header="手机"   />
+		<column key ="email"  header="邮箱"  />
+		<column key ="createDate" header="创建日期" type="java.util.Date" />
+        <column key ="userType" display="false" allowSearch="true" operator="NEQ" andFilter="status#NEQ#1"/>
+        <column key ="status" header="状态" dict="user_status"/>
+	</query>
+	
+</querys>

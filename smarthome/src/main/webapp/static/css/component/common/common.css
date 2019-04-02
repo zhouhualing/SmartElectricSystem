@@ -1,0 +1,113 @@
+a,li{
+  cursor:pointer;
+}
+
+
+.hig {
+	height:5px;
+}
+
+.clickmedDialogClass {
+	font-size: 62.5%;
+	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
+}
+select{
+  border:1px inset #f4f4f4 !important ;
+}
+*{ 
+    -webkit-tap-highlight-color:rgba(0,0,0,0) !important; 
+
+    outline: none!important;
+
+}
+table {
+	font-size: 1em; color:#333;
+}
+
+.demo-description {
+	clear: both;
+	padding: 12px;
+	font-size: 1.3em;
+	line-height: 1.4em;
+}
+
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+
+button {
+	ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only
+}
+
+
+ .ui-progressbar {
+   position: relative;
+ }
+ 
+ 
+ .progress-label {
+   position: absolute;
+   left: 50%;
+   top: 4px;
+   font-weight: bold;
+   text-shadow: 1px 1px 0 #fff;
+ }
+
+.black {
+	color:black
+}
+
+.white{
+	background-color: #FFF;
+}
+
+body{
+	overflow-x:hidden
+}
+
+.dateMinWidth {
+	min-width: 100px
+}
+
+.timeMinWidth {
+	min-width: 160px
+}
+
+.progress-label {
+	font-size:0px!important;
+}
+
+.heightFormat {
+	height:20px!important;
+}
+
+.wf_top {
+	top : 100px!important;
+}
+
+.wf_disabled {
+	color: #999!important;
+}
+
+  .ui-corner-all{
+    		z-index:1500
+   	 }
+    
+    .edui-dialog-image {
+    	z-index:2000
+    }
+	
+.wf_breakall {
+	word-break:break-all
+}
+
+textarea {
+	wrap:physical;
+}
+	
+	
+pre {
+	background-color:white;
+	border:0px solid #ccc;
+	font-size:15px;
+}

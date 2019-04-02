@@ -1,0 +1,23 @@
+.Wdate{
+	border:#999 1px solid;
+	height:20px;
+	background:#fff url(datePicker.gif) no-repeat right;
+}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}
+
+.Wdate{
+	background:url("./default/arrow_down.png") no-repeat scroll right center #FFFFFF;
+	color:#000;
+	font-family:Î¢ÈíÑÅºÚ,microsoft yahei;
+	font-size:14px;
+	border:1px solid #516176;
+	height:25px;
+	background-position:95% 9px;
+}
+.jqTransformInputWrapper_focus input.Wdate{
+	background:url("./default/arrow_up.png") no-repeat scroll 95% 9px #FFFFFF;
+}

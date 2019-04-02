@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body{ background: url(../image/bg.png); width:100%; margin:0 auto;  min-width:1004px; max-width:100%; overflow-y:visible;overflow-x:hidden; height:100%;}
+.header{ height:74px; width:100%; margin:0 auto; min-width:1004px; max-width:100%;  background: url(../image/headbg.jpg);}
+.user_title{ height:26px; width:100%; margin:0 auto; min-width:1004px; max-width:100%; background-color:#435672; color:#fff; font-size:12px; line-height:27px; border-bottom:1px solid #3a4766;}
+.box{height:70px; width:100%; max-width:1280px; margin:0 auto; }
+.container{ height:auto; width:100%; margin:0 auto;  min-width:1004px; max-width:1280px; overflow:hidden; max-height:529px; overflow-y:auto; }
+.user_title_text{ max-width:1280px; margin:0 auto;}
+
+/*----------------------------------footer style star----------------------------------*/
+
+.footer{ height:auto; overflow:hidden; padding:1px 0px; width:100%; max-width:100%; margin-top:3px;}
+.footer span{ line-height:23px; font-size:12px;  color:#FFF;  display: inline;}
+.a_left{ text-align:left;}
+.a_right{ text-align:right;}
+.f_left{ float:left; padding-left:20px;}
+.f_right{ float:right; padding-right:20px;}
+.top_header{ height:100px; margin:0 auto;}
+.container{ height:auto; overflow:hidden;}
+/*----------------------------------footer style end----------------------------------*/

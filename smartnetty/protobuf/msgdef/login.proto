@@ -1,0 +1,98 @@
+package IDL;
+import "msgdef/sensor.proto";
+
+
+option java_package = "com.harmazing.protobuf";
+option java_outer_classname = "LoginProtos";
+
+
+// login send from GW to SPM 
+
+message Login {
+    required string gatewayMac          = 1;    // MAC address of device
+    required string gatewaySerialNumber = 2;    // serial number of device
+    required uint32 protoVersion        = 3;    // serial number of device
+    optional string gatewayType         = 10;   // device type
+    optional uint32 hardwareVersion      = 4;    // hardware reversion
+    optional uint32 softwareVersion      = 5;    // software reversion
+}
+
+// login response from SPM to GW
+
+message LoginResponse {
+
+    required uint32         returnCode          = 1;
+    optional string         faultString         = 2; 
+    optional LogCfg         logCfg              = 3;
+    //optional ServiceSet     serviceSet          = 4;
+    optional DeviceSet      deviceSet           = 4;
+
+}
+//
+//message AirConditionerService {
+//
+//    message TemperatureRange {
+//        required int32 cooler_Start             = 1; 
+//        required int32 cooler_End               = 2; 
+//        required int32 heater_start             = 3; 
+//        required int32 heater_end               = 4; 
+//    }
+//
+//    required TemperatureRange   temperatureRange    = 1; 
+//    required string sensorId                        = 2;
+//    required bool WinDoorSensorEnabled              = 3;
+//    repeated string bindingSensorsId                = 4;
+//    repeated AirConditionerSendorSpecificInfo.AirConditionerOperatironMode mode = 5;
+//}
+//
+//message Service {
+//    enum ServiceID {
+//        AIRCONDITIONER = 0;
+//    }
+//    required ServiceID id = 1;
+//    optional AirConditionerService ACService = 2;
+//}
+//
+//message ServiceSet {
+//    repeated Service    services = 1; // currently only AC supported 
+//}
+
+message AirConditionerAttribute {
+
+    message TemperatureRange {
+        required int32 cooler_Start             = 1; 
+        required int32 cooler_End               = 2; 
+        required int32 heater_start             = 3; 
+        required int32 heater_end               = 4; 
+    }
+    required TemperatureRange   temperatureRange    = 1;
+    required bool WinDoorSensorEnabled              = 2;
+    repeated string bindingSensorsId                = 3;
+    repeated AirConditionerSendorSpecificInfo.AirConditionerOperatironMode mode = 4;
+}
+
+message WinDoorAttribute {
+
+}
+
+message Device {
+    enum DeviceType {
+        AIRCONDITIONER = 0;
+        WINDOOR        = 1;
+    }
+    required DeviceType type                        = 1;
+    required string     deviceId                    = 2; // mac address
+    optional AirConditionerAttribute     acAttr     = 3;
+    optional WinDoorAttribute            wdAttr     = 4;
+
+}
+
+message DeviceSet {
+    repeated Device     devices = 1;  // currently only AC
+
+}
+
+message LogCfg {
+    required uint32 loginterval                 = 1; // unit: second
+    required uint32 reportinterval              = 2; // unit: second
+}

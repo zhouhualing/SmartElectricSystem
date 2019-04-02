@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harmazing.mapper.UserActionMapper">
+  <insert id="batchInsertUserAction4Sensor" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			INSERT INTO spms_useraction
+             (
+             id, mobile, mac, status
+             ) 
+            VALUES 
+             (             
+             #{item.id},#{item.mobile}, #{item.mac}, #{item.status}
+             )  
+		</foreach>
+	</insert>
+	
+	<insert id="batchInsertUserAction4AC" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			INSERT INTO spms_useraction
+             (
+             id, mobile, mac, on_off, mode, temp, speed
+             ) 
+            VALUES 
+             (             
+             #{item.id},#{item.mobile}, #{item.mac}, #{item.on_off}, #{item.mode}, #{item.temp}, #{item.speed}
+             )  
+		</foreach>
+	</insert>
+
+	<insert id="batchInsertUserAction4Lamp" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			INSERT INTO spms_useraction
+             (
+             id, mobile, mac, on_off, illuminance, red, green, blue
+             ) 
+            VALUES 
+             (             
+             #{item.id},#{item.mobile}, #{item.mac}, #{item.on_off}, #{item.illuminance}, #{item.red}, #{item.green}, #{item.blue}
+             )  
+		</foreach>
+	</insert>
+</mapper>

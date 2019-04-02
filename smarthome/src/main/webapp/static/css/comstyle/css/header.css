@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+.header{
+	height:50px;
+	background:url(../images/headerbg.png) no-repeat;
+	background-size:cover;
+	position:relative;
+		}
+.header_text{
+	position:absolute;
+	right:62px;
+	top:16px;
+	font-size:18px;
+	color:#FFF;
+	}
+.close{
+	position:absolute;
+	right:17px;
+	top:9px;
+	}
