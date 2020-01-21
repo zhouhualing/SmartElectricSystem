@@ -67,7 +67,7 @@
 		<!-- activiti -->
 		<activiti.version>5.17.0</activiti.version>
 		<com.fasterxml.uuid.version>3.1.4</com.fasterxml.uuid.version>
-		<activiti-cache.version>5.2.11.Final</activiti-cache.version>
+		<activiti-cache.version>10.0.0.Final</activiti-cache.version>
 		
 		<!-- xml parse -->
 		<jaxen.version>1.1.6</jaxen.version>
