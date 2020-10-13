@@ -53,7 +53,7 @@
 		<cglib.version>3.1</cglib.version>
 		
 		<!-- junit -->
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		
 		<!-- webservice -->
 		<cxf.version>2.7.14</cxf.version>
