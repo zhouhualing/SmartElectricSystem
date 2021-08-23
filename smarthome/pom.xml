@@ -43,7 +43,7 @@
 		
 		<!-- json util -->
 		<jackson.version>2.4.4</jackson.version>
-		<jsoup.version>1.8.1</jsoup.version>
+		<jsoup.version>1.14.2</jsoup.version>
 		<org.json.version>20141113</org.json.version>
 		
 		<!-- log -->
