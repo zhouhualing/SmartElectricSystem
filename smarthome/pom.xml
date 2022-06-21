@@ -98,7 +98,7 @@
 		<!-- mysql -->
 		<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
 		<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
-		<jdbc.driver.version>5.1.34</jdbc.driver.version>
+		<jdbc.driver.version>8.0.28</jdbc.driver.version>
 		<!-- oracle -->
 		<!-- oracle driver setting  
 			<jdbc.driver.groupId>com.oracle</jdbc.driver.groupId> 
