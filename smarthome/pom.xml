@@ -27,7 +27,7 @@
 		<!--<druid.version>1.0.12</druid.version>-->
 		
 		<!-- security framework -->
-		<shiro.version>1.2.3</shiro.version>
+		<shiro.version>1.9.1</shiro.version>
 		
 		<!-- aspect -->
 		<aspectj.version>1.8.4</aspectj.version>
