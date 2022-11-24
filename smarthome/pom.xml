@@ -19,7 +19,7 @@
 		<!-- dao layer -->
 		 
 		
-		<hibernate.version>4.3.7.Final</hibernate.version>
+		<hibernate.version>5.3.20.Final</hibernate.version>
 		<spring-data-jpa.version>1.7.1.RELEASE</spring-data-jpa.version>
 		
 		<!-- connection pool -->		
